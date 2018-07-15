@@ -6,8 +6,6 @@ $(document).on("ready",function(){
     numOfSlices = 0;
     slicing = false;
     results = [];
-  })
+  });
+  $("body").css({"overflow":"hidden",'position':'fixed'});
 })
-document.ontouchstart = function(e){ 
-    e.preventDefault(); 
-}
