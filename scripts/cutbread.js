@@ -87,19 +87,19 @@ function check(){
   var score = 100 - stdval;
   score = score.toFixed(2);
   $("#eveness").text(score + "/100");
-  if (score < 40){
+  if (score < 60){
     var randomNum = round(random(0,paMessages0.length-1));
     $("#messageResponse").text(paMessages0[randomNum]);
   }
-  else if (score < 60){
+  else if (score < 80){
     var randomNum = round(random(0,paMessages1.length-1));
     $("#messageResponse").text(paMessages1[randomNum]);
   }
-  else if (score < 80){
+  else if (score < 90){
     var randomNum = round(random(0,paMessages2.length-1));
     $("#messageResponse").text(paMessages2[randomNum]);
   }
-  else if (score <= 90){
+  else if (score <= 95){
     var randomNum = round(random(0,paMessages3.length-1));
     $("#messageResponse").text(paMessages3[randomNum]);
   }

@@ -13,7 +13,8 @@ var paMessages0 = [
   "No words... no words...",
   "You expect feedback for this trash? Think again",
   "Why are you still on this site? You are not worthy of it",
-  "Pleb cutter, that's who you are"
+  "Pleb cutter, that's who you are",
+  "If I were your parents, I would disown you",
 ]
 var paMessages1 = [
   "You call that cutting?",
@@ -23,7 +24,9 @@ var paMessages1 = [
   "Whyyyyyyyyy",
   "Come on, my grandpa cuts things better than you",
   "You don't need to cut like Gordon flipping Ramsey. Just make an even cut",
-  "I'm in so much pain. It is unbelievable. I'm not even real! Just think about that"
+  "I'm in so much pain. It is unbelievable. I'm not even real! Just think about that",
+  "If I were you, I would leave",
+  "The door is right behind you. I encourage you to walk through it and leave"
 ]
 var paMessages2 = [
   "You know what even means right?",
@@ -31,7 +34,8 @@ var paMessages2 = [
   "What even is this",
   "LOL, laughable cuts you got there",
   "Even cuts. Even cuts. Even cuts...",
-  "You won't make it in the food industry, stay at home"
+  "You won't make it in the food industry, stay at home",
+  "Wutttt, I can't even tell what you are trying to do"
   ];
 var paMessages3 = [
   "Where's the passion? You can do better",
@@ -39,6 +43,8 @@ var paMessages3 = [
   "At least a pig might eat it",
   "Where did you learn to cut?",
   "What are you trying to do? I asked for EVEN cuts",
+  "pls, try harder",
+  ""
   ];
 var paMessages4 = [
   "Finally, you cut it nicely",
