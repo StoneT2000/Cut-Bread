@@ -1,0 +1,20 @@
+body {
+  background-image:url('../images/PolyBackground.jpg');
+
+}
+.container{
+
+}
+
+#clear{
+  position: absolute;
+  line-height: 50px;
+  font-size:25px;
+  transition: font-size 0.2s;
+}
+#clear:hover{
+  color:orange;
+  cursor:pointer;
+  font-size:50px;
+  
+}

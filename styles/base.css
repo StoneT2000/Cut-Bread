@@ -1,0 +1,112 @@
+/* CSS for headers and footers*/
+body, html{
+  color:RGB(30,30,30);
+  margin:0;
+  padding:0;
+  position: relative;
+  box-sizing: border-box;
+  font-weight: 400;
+
+}
+
+.container{
+  margin-top:10px;
+  width:100%;
+  height: 100%;
+}
+.mainContent{
+  display: block;
+}
+
+.centerPercentWidth{
+  margin-left: 10%;
+  width:80%;
+  text-align: center;
+  color:white;
+}
+.centerStaticWidth{
+  /*
+  margin-left:50%;
+  transform: translate(-200px,0)*/
+  margin: auto;
+}
+.centerStaticHeight{
+  /*Centers element to middle height of parent element*/
+  position: absolute;
+  top:50%;
+  transform: translate(0,-50%);
+  
+}
+.centerAbsoluteWidth{
+  left:50%;
+  width:400px;
+  position: absolute;
+  margin-left:-200px;
+  text-align: center;
+}
+.header{
+  z-index:1000;
+}
+.header ul{
+  position:fixed;
+  background-color:RGB(50,50,50);
+  height:50px;
+  top:0px;
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+  width: 100%;
+  z-index:100;
+
+}
+.header li {
+  line-height:50px;
+  width:130px;
+  height:50px;
+  display:inline-block;
+  float:left;
+  background-color:RGB(50,50,50);
+  color:white;
+  padding-left: 20px;
+}
+.header a{
+  width: 130px;
+  color:white;
+}
+.header li:hover{
+  background-color: #0275d8;
+}
+.header a:hover{
+  color:black;
+}
+button{
+  border:none;
+}
+button:focus {outline:0;}
+.footer{
+  position: absolute;
+  width:100%;
+  height:50px;
+  bottom: 0px;
+  margin:none;
+  text-align: center;
+  color:RGB(50,50,50);
+}
+.footer a{
+  color: RGB(50,50,50);
+  font-size:30px;
+  margin-left: 5px;
+}
+.footer h6{
+  display: inline-block;
+  line-height: 90px;
+  margin-bottom: 0px;
+  margin-top:0px;
+  font-size: 20px;
+  font-weight: 300;
+  transform: translate(0,-3px);
+}
+.footer a:hover{
+  border-radius: 50%;
+  color: #0275d8;
+}
