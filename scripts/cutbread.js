@@ -67,7 +67,7 @@ function mousePressed(){
   
 }
 
-//Check the slices for eveness!
+//Check the slices for eveness! Then output results and display a nice message :)
 function check(){
   var pieces = calculateAreas(slices);
   var count = 0;
@@ -85,7 +85,39 @@ function check(){
   var score = 100 - stdval;
   score = score.toFixed(2);
   $("#eveness").text(score + "/100");
-  //Output results
+  if (score < 40){
+    var randomNum = round(random(0,paMessages0.length-1));
+    $("#messageResponse").text(paMessages0[randomNum]);
+  }
+  else if (score < 60){
+    var randomNum = round(random(0,paMessages1.length-1));
+    $("#messageResponse").text(paMessages1[randomNum]);
+  }
+  else if (score < 80){
+    var randomNum = round(random(0,paMessages2.length-1));
+    $("#messageResponse").text(paMessages2[randomNum]);
+  }
+  else if (score < 90){
+    var randomNum = round(random(0,paMessages3.length-1));
+    $("#messageResponse").text(paMessages3[randomNum]);
+  }
+  else if (score < 99.9){
+    var randomNum = round(random(0,paMessages4.length-1));
+    $("#messageResponse").text(paMessages4[randomNum]);
+  }
+  else {
+    //If you got this score, you probably cheated
+    if (numOfSlices <= 1){
+      var randomNum = round(random(0,paMessages5_1.length-1));
+      $("#messageResponse").text(paMessages5_1[randomNum]);
+    }
+    else {
+      var randomNum = round(random(0,paMessages5.length-1));
+      $("#messageResponse").text(paMessages5[randomNum]);
+    }
+    
+  }
+  
   
   
 }
@@ -116,7 +148,6 @@ function calculateAreas(slices){
   var centersy = {};
   
   loadPixels();
-  console.log(fget(0,0))
   for (var i = 0; i < cWidth; i++){
     for (var j = 0; j < cHeight; j++){
       colors = fget(i,j)
@@ -159,7 +190,7 @@ function calculateAreas(slices){
     var percentAreaText = ((areas[hashKey]/totalArea) * 100).toFixed(2) + "%"
     results.push([percentAreaText,cx,cy])
   }
-  console.log(areas)
+
   return areas;
   
 }
