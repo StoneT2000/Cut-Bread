@@ -8,3 +8,6 @@ $(document).on("ready",function(){
     results = [];
   })
 })
+document.ontouchstart = function(e){ 
+    e.preventDefault(); 
+}
