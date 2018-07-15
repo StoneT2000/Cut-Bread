@@ -7,5 +7,5 @@ $(document).on("ready",function(){
     slicing = false;
     results = [];
   });
-  $("body").css({"overflow":"hidden",'position':'fixed'});
+  $("body").css({"overflow":"hidden"});
 })
