@@ -8,7 +8,12 @@ var paMessages0 = [
   "If that's your best effort, then I have no faith in humanity",
   "O.o (my reaction to your horrible cutting skills)",
   "Could you at least try for once? How hard is it to cut it evenly...",
-  "**** (insert expletive here) ****"
+  "**** (insert expletive here) ****",
+  "**** Bleeped Out Message ****",
+  "No words... no words...",
+  "You expect feedback for this trash? Think again",
+  "Why are you still on this site? You are not worthy of it",
+  "Pleb cutter, that's who you are"
 ]
 var paMessages1 = [
   "You call that cutting?",
@@ -17,27 +22,42 @@ var paMessages1 = [
   "Don't come back unless you've improved",
   "Whyyyyyyyyy",
   "Come on, my grandpa cuts things better than you",
-  "You don't need to cut like Gordon flipping Ramsey. Just make a even cut"
+  "You don't need to cut like Gordon flipping Ramsey. Just make an even cut",
+  "I'm in so much pain. It is unbelievable. I'm not even real! Just think about that"
 ]
 var paMessages2 = [
   "You know what even means right?",
-  "Come on, better slices!"
+  "Come on, better slices!",
+  "What even is this",
+  "LOL, laughable cuts you got there",
+  "Even cuts. Even cuts. Even cuts...",
+  "You won't make it in the food industry, stay at home"
   ];
 var paMessages3 = [
   "Where's the passion? You can do better",
-  "I expect a better cut next time"
+  "I expect a better cut next time",
+  "At least a pig might eat it",
+  "Where did you learn to cut?",
+  "What are you trying to do? I asked for EVEN cuts",
   ];
 var paMessages4 = [
   "Finally, you cut it nicely",
-  "Hmm, fine, it's not a bad cut"
+  "Hmm, fine, it's not a bad cut",
+  "Would eat 9/10 times",
+  "Good enough for your average customer",
   ];
 var paMessages5 = [
   "Cheater",
-  "No way"
+  "No way",
+  "How did you get a eveness score above 99.9",
+  "God like cutting",
+  "I want to believe you just made this beautifully even cuts, but no one is this perfect"
   ];
 var paMessages5_1 = [
   "Cheater, only 1 slice",
   "1 slice...",
   "You can't fool PA chef!",
-  "Did you actaully cut anything"
+  "Did you actaully cut anything",
+  "What did you think not cutting the bread would do?",
+  "Trying to fool me? Think again!"
 ]

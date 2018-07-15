@@ -47,7 +47,7 @@ function draw(){
 }
 
 function mousePressed(){
-  if (mouseY <= 525){
+  if (mouseY <= 500 && mouseY >=0 && mouseX >=0 && mouseX <= 500){
     //Complete the slice if done already
     if (slicing == true){
       slicing = false;
@@ -97,11 +97,11 @@ function check(){
     var randomNum = round(random(0,paMessages2.length-1));
     $("#messageResponse").text(paMessages2[randomNum]);
   }
-  else if (score < 90){
+  else if (score <= 90){
     var randomNum = round(random(0,paMessages3.length-1));
     $("#messageResponse").text(paMessages3[randomNum]);
   }
-  else if (score < 99.9){
+  else if (score <= 99.9){
     var randomNum = round(random(0,paMessages4.length-1));
     $("#messageResponse").text(paMessages4[randomNum]);
   }
