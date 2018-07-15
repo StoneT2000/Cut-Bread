@@ -8,15 +8,17 @@ var cHeight = 500;
 var cWidth = 500;
 var numOfSlices = 0;
 var results = [];
-
+var gfont;
 function preload(){
   //Default bread slice selected for display
   bimg = loadImage(breads[0]);
+  gfont = loadFont("../fonts/Gaegu-Regular.ttf");
 }
 function setup(){
   breadCanvas = createCanvas(500,500)
   breadCanvas.parent('cutbread');
   
+  textFont(gfont);
   //Resolution density d
   d = pixelDensity();
   

@@ -62,7 +62,7 @@ body {
   top:100px;
 }
 #cutbread {
-  
+  cursor:crosshair;
 }
 
 @media only screen and (max-width: 1000px) {
