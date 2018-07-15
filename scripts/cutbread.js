@@ -12,7 +12,7 @@ var gfont;
 function preload(){
   //Default bread slice selected for display
   bimg = loadImage(breads[0]);
-  gfont = loadFont("../fonts/Gaegu-Regular.ttf");
+  gfont = loadFont("Gaegu-Regular.ttf");
 }
 function setup(){
   breadCanvas = createCanvas(500,500)
