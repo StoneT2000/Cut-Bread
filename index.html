@@ -13,24 +13,45 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <!--Add additional scripts here-->
   <script src="libraries/p5.js"></script>
-  <script src="scripts/cutbread.js"></script>
-  <script src="scripts/buttons.js"></script>
-    
+  <script src="scripts/cutbread.js?version=2"></script>
+  <script src="scripts/buttons.js?version=2"></script>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Gaegu" rel="stylesheet"> 
+  
 </head>
 <body>
   <div class="container">
     <!--All page content goes here -->
     <div class="row mainContent">
-      <div class="centerStaticWidth" style="margin-bottom:50px;margin-top:50px;text-align: center"><h1>Cut Bread!</h1></div>
-      
-      <div class="centerStaticWidth" id="cutbread" style="width:500px;margin-top:0px;margin-bottom:25px">
+      <div class="centerStaticWidth" style="margin-bottom:10px;margin-top:10px;text-align: center"><h1 style="font-size:70px;color:">Cut Bread!</h1></div>
+      <img src="assets/border.png" width="400" height="80" style="position:absolute;top:0px;z-index:-1;left:50%" class="centerAbsoluteWidth">
+      <div class="centerAbsoluteWidth" id="clearit"  style="margin-top:0px;">Clear Slices</div>
+      <div id="stats">
+        <table>
+          <th style="padding-right: 10px;">Cutting</th><th style="text-align: left;padding-left: px;">Stats</th>
+            <tr style="line-height: 10px;">
+              <td class="dashRow"><h5>- - - - - - - -</h5></td>
+              <td class="dashRow"><h5>- - - - -</h5></td>
+            </tr>
+          <tr>
+            <td>Eveness:</td>
+            <td id="eveness">N/A</td>
+          </tr>
+          <tr>
+            <td>No. Pieces:</td>
+            <td id="numpieces">0</td>
+          </tr>
+        </table>
       </div>
-      <div class="centerAbsoluteWidth" id="clear">Clear Slices</div>
+      <div class="centerStaticWidth" id="cutbread" style="width:500px;">
+      </div>
+      
     </div>
   </div>
   <div class="footer" style="">
     <h6>Github </h6> <a href="https://github.com/StoneT2000"><i class="fa fa-github"></i></a>
-    <h6 style="font-size:30px;margin-right: 15px;margin-left: 15px">|</h6>
+    <h6 style="font-size:20px;margin-right: 5px;margin-left: 5px">|</h6>
     <h6>Email</h6> <a href="mailto:stoneztao@gmail.com"><i class="fa fa-envelope"></i></a>
   </div>
 </body>

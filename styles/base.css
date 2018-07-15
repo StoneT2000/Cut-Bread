@@ -6,13 +6,12 @@ body, html{
   position: relative;
   box-sizing: border-box;
   font-weight: 400;
-
 }
 
 .container{
   margin-top:10px;
   width:100%;
-  height: 100%;
+
 }
 .mainContent{
   display: block;
@@ -84,17 +83,18 @@ button{
 }
 button:focus {outline:0;}
 .footer{
-  position: absolute;
-  width:100%;
-  height:50px;
-  bottom: 0px;
+  position: fixed;
+
+  height: 20px;
+  bottom: 50px;
+  margin-left:20px;
   margin:none;
   text-align: center;
   color:RGB(50,50,50);
 }
 .footer a{
   color: RGB(50,50,50);
-  font-size:30px;
+  font-size: 25px;
   margin-left: 5px;
 }
 .footer h6{
@@ -102,7 +102,7 @@ button:focus {outline:0;}
   line-height: 90px;
   margin-bottom: 0px;
   margin-top:0px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
   transform: translate(0,-3px);
 }

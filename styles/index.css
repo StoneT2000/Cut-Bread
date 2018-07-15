@@ -1,20 +1,45 @@
 body {
   background-image:url('../images/PolyBackground.jpg');
-
+  font-family: 'Gaegu', cursive;
 }
 .container{
 
 }
 
-#clear{
+#clearit{
   position: absolute;
   line-height: 50px;
   font-size:25px;
-  transition: font-size 0.2s;
+  transition:font-size 0.2s;
+  -webkit-transition:font-size 0.2s;
+  -moz-transition:font-size 0.2s;
+  -ms-transition:font-size 0.2s;
+  -o-transition:font-size 0.2s;
 }
-#clear:hover{
+#clearit:hover{
   color:orange;
   cursor:pointer;
   font-size:50px;
   
+}
+#stats{
+  margin-left: 20px;
+}
+#stats td, tr, th{
+  font-size: 30px;
+  font-weight: 200;
+  width:200px;
+  text-align: right;
+}
+#stats th{
+  font-size:45px;
+}
+
+#stats td:nth-child(even){
+
+  text-align: left;
+  padding-left: 10px;
+}
+.dashRow h5{
+  font-size:25px;
 }

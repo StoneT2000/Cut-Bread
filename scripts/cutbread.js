@@ -1,5 +1,5 @@
 var breadCanvas;
-var breads = ["breads/breadSlice0.png",""];
+var breads = ["breads/breadSlice0.png","breads/Pizza.png"];
 var bimg;
 var slicing = false;
 var slices = [];
@@ -8,6 +8,7 @@ var cHeight = 500;
 var cWidth = 500;
 var numOfSlices = 0;
 var results = [];
+
 function preload(){
   //Default bread slice selected for display
   bimg = loadImage(breads[0]);
@@ -28,6 +29,7 @@ function setup(){
 function draw(){
   background(255,255,255)
   image(bimg,0,0,500,500)
+
   stroke(255,255,255)
   strokeWeight(5)
   
@@ -36,16 +38,8 @@ function draw(){
     line(tempSlice[tempSlice.length-2],tempSlice[tempSlice.length-1],mouseX,mouseY)
   }
   
-  //If user has made a slice, slice array should be of length 4, we then display it
   displaySlices(slices);
-  /*
-  var zeon1 = [];
-  for (var k = 0; k< 4*numOfSlices; k+=4){
-    zeon1.push(side(mouseX,mouseY,slices[k],slices[k+1],slices[k+2],slices[k+3]));
-  }
-  var hash1 = hashRegion(zeon1);
-  console.log(zeon1,hash1)
-  */
+
   noStroke();
   for (var k=0;k<results.length;k++){
     text(results[k][0],results[k][1],results[k][2]);
@@ -62,6 +56,7 @@ function mousePressed(){
 
       slices.push(tempSlice[0],tempSlice[1],tempSlice[2],tempSlice[3]);
       tempSlice = [];
+      check();
 
     }
     else{
@@ -74,7 +69,25 @@ function mousePressed(){
 
 //Check the slices for eveness!
 function check(){
-  calculateAreas(slices);
+  var pieces = calculateAreas(slices);
+  var count = 0;
+  for (hashKey in pieces){
+    count ++;
+  }
+  $("#numpieces").text(count);
+  
+  var stdval = 0;
+  var percentages = [];
+  for (var i =0; i<results.length;i++){
+    percentages.push(parseFloat(results[i][0]));
+  }
+  stdval = std(percentages);
+  var score = 100 - stdval;
+  score = score.toFixed(2);
+  $("#eveness").text(score + "/100");
+  //Output results
+  
+  
 }
 
 //quickly return the color of the pixels[] array as loaded by loadPixels() in RGBA format;
@@ -103,11 +116,11 @@ function calculateAreas(slices){
   var centersy = {};
   
   loadPixels();
-  
+  console.log(fget(0,0))
   for (var i = 0; i < cWidth; i++){
     for (var j = 0; j < cHeight; j++){
       colors = fget(i,j)
-      if (colors[0] + colors[1] + colors [2] < 765){
+      if (colors[0]+colors[1]+colors[2] < 765){
         //Calculate which region it belongs to with hash function
         var zeon = [];
         for (var k = 0; k< 4*numOfSlices; k+=4){
@@ -127,6 +140,9 @@ function calculateAreas(slices){
           centersy[hash] = j;
         }
       }
+      else{
+
+      }
     }
   }
 
@@ -143,6 +159,7 @@ function calculateAreas(slices){
     var percentAreaText = ((areas[hashKey]/totalArea) * 100).toFixed(2) + "%"
     results.push([percentAreaText,cx,cy])
   }
+  console.log(areas)
   return areas;
   
 }
@@ -225,5 +242,21 @@ function extendVertex(x1,y1,x2,y2){
   var dx = x2-x1;
   var dy = y2-y1;
   var slope = dy/dx;
+  
+}
+
+function std(arr){
+  //Format arr = [p1,p2,p3]
+  //Where pi = percent form
+  var mean = 0;
+  for (var i =0; i<arr.length;i++){
+    mean += arr[i]
+  }
+  mean /= arr.length;
+  var stdval = 0;
+  for (var i =0; i<arr.length;i++){
+    stdval += pow((arr[i]-mean),2)
+  }
+  return sqrt(stdval);
   
 }
