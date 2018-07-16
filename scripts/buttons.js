@@ -6,6 +6,9 @@ $(document).on("ready",function(){
     numOfSlices = 0;
     slicing = false;
     results = [];
+    $("#messageResponse").text("");
+    $("#numpieces").text(0);
+    $("#eveness").text("N/A")
   });
 
 })

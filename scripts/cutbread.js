@@ -37,7 +37,8 @@ function draw(){
   
   //Display current slice
   if (slicing == true){
-    line(tempSlice[tempSlice.length-2],tempSlice[tempSlice.length-1],mouseX,mouseY)
+    var currentSlice = extendV(tempSlice[tempSlice.length-2],tempSlice[tempSlice.length-1],mouseX,mouseY)
+    dottedLine(tempSlice[tempSlice.length-2],tempSlice[tempSlice.length-1],mouseX,mouseY)
   }
   
   displaySlices(slices);
@@ -55,8 +56,8 @@ function mousePressed(){
       slicing = false;
       numOfSlices++;
       tempSlice.push(mouseX,mouseY);
-
-      slices.push(tempSlice[0],tempSlice[1],tempSlice[2],tempSlice[3]);
+      var currentSlice = extendV(tempSlice[0],tempSlice[1],tempSlice[2],tempSlice[3])
+      slices.push(currentSlice[0],currentSlice[1],currentSlice[2],currentSlice[3]);
       tempSlice = [];
       check();
 
@@ -67,6 +68,13 @@ function mousePressed(){
     }
   }
   
+}
+
+function keyPressed(){
+  if (keyCode === 27){
+    slicing = false;
+    tempSlice = [];
+  }
 }
 
 //Check the slices for eveness! Then output results and display a nice message :)
@@ -271,10 +279,11 @@ function hashRegion(arr){
 }
 
 //returns the vertices of the line if they were on the canvas border
-function extendVertex(x1,y1,x2,y2){
+function extendV(x1,y1,x2,y2){
   var dx = x2-x1;
   var dy = y2-y1;
   var slope = dy/dx;
+  return [x1-500,y1-500*slope,x2+500,y2+500*slope];
   
 }
 
@@ -292,4 +301,17 @@ function std(arr){
   }
   return sqrt(stdval);
   
+}
+
+function dottedLine(x1,y1,x2,y2){
+  var dx= x2-x1;
+  var dy = y2-y1;
+  var dist = sqrt(dx*dx+dy*dy);
+  var sx = dx/(dist/15)
+  var sy = dy/(dist/15)
+  for (var i = 0; i< dist/15; i++){
+    if (i%2 == 0){
+      line(x1+i*sx,y1+i*sy,x1+(i+1)*sx,y1+(i+1)*sy);
+    }
+  }
 }

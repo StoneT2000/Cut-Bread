@@ -102,4 +102,7 @@ body {
     width:250px;
     text-align: right;
   }
+  #helpmsg{
+    position: relative;
+  }
 }

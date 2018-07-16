@@ -21,7 +21,7 @@ var paMessages1 = [
   "My eyes burn at the sight of this",
   "Not bad, not bad, maybe just use a knife next time",
   "Don't come back unless you've improved",
-  "Whyyyyyyyyy",
+  "Whyyyyyyyyy...how can you be so badddd",
   "Come on, my grandpa cuts things better than you",
   "You don't need to cut like Gordon flipping Ramsey. Just make an even cut",
   "I'm in so much pain. It is unbelievable. I'm not even real! Just think about that",
