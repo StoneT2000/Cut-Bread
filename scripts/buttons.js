@@ -1,3 +1,4 @@
+var started = false;
 $(document).on("ready",function(){
   $("#clearit").on("click",function(){
     console.log("clear slices and reset")
@@ -9,6 +10,11 @@ $(document).on("ready",function(){
     $("#messageResponse").text("");
     $("#numpieces").text(0);
     $("#eveness").text("N/A")
+  });
+  $("#openingCover").on("click",function(){
+    $("#openingCover").css("display","none");
+    $("#openingCover").remove("click");
+    started = true;
   });
 
 })

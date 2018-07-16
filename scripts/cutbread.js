@@ -9,6 +9,7 @@ var cWidth = 500;
 var numOfSlices = 0;
 var results = [];
 var gfont;
+var displayPercentages = false;
 function preload(){
   //Default bread slice selected for display
   bimg = loadImage(breads[0]);
@@ -42,15 +43,17 @@ function draw(){
   }
   
   displaySlices(slices);
-
-  noStroke();
-  for (var k=0;k<results.length;k++){
-    text(results[k][0],results[k][1],results[k][2]);
+  
+  if (displayPercentages == true){
+    noStroke();
+    for (var k=0;k<results.length;k++){
+      text(results[k][0],results[k][1],results[k][2]);
+    }
   }
 }
 
 function mousePressed(){
-  if (mouseY <= 500 && mouseY >=0 && mouseX >=0 && mouseX <= 500){
+  if (mouseY <= 500 && mouseY >=0 && mouseX >=0 && mouseX <= 500 && started == true){
     //Complete the slice if done already
     if (slicing == true){
       slicing = false;
@@ -74,6 +77,14 @@ function keyPressed(){
   if (keyCode === 27){
     slicing = false;
     tempSlice = [];
+  }
+  else if (keyCode == 68){
+    if (displayPercentages == true){
+      displayPercentages = false;
+    }
+    else {
+      displayPercentages = true;
+    }
   }
 }
 
@@ -202,49 +213,6 @@ function calculateAreas(slices){
   }
 
   return areas;
-  
-}
-
-//Returns whether a point is within a polygon as defined by its vertices positions
-function inPolygon(pos,vertices){
-  //Vertices stored in format [[x,y],[x,y],...,[x,y]]
-  //Pos stored as [x,y]
-  totalArea = 0;
-  expectedArea = pArea(vertices);
-  for (var i = 0; i<vertices.length-1; i++){
-    triangleV = [vertices[i], vertices[i + 1], pos[0], pos[1]];
-    totalArea += tArea(triangleV);
-    
-  }
-  if (totalArea > expectedArea){
-    return false;
-  }
-  else {
-    return true;
-  }
-}
-
-//Return triangle area
-function tArea(vertices){
-  vertices = vertices.reduce(function(acc,curr){return acc.concat(curr)});
-  //Flatten array by 1 level to get [x1,y1,x2,y2,x3,y3]
-  return 0.5 * abs((vertices[0]-vertices[4]) * (vertices[3]-vertices[1]) - (vertices[0] - vertices[2]) * (vertices[5] - vertices[1]))
-}
-
-//Return polygon area
-function pArea(vertices){
-  vertices = vertices.reduce(function(acc,curr){return acc.concat(curr)});
-  var det = 0;
-  for (var i = 0; i < vertices.length/2 - 1; i++){
-    if (i != floor(vertices.length/2)){
-      det += vertices[2*i]*vertices[2*i + 3] - vertices[2*i + 2] * vertices[2*i + 1]
-    }
-    else {
-      //If reached end, then
-      det += vertices[2*i]*vertices[1] - vertices[0] * vertices[2*i + 1]
-    }
-  }
-  return 0.5 * abs(det)
   
 }
 

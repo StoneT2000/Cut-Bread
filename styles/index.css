@@ -63,6 +63,24 @@ body {
 }
 #cutbread {
   cursor:crosshair;
+  z-index:-10;
+}
+#openingCover {
+  z-index:10;
+  background-color:RGBA(50,50,50,0.5);
+  height:100%;
+  top:0;
+  width:100%;
+  position:fixed;
+  
+}
+#helpmsg{
+  margin-bottom:100px;
+}
+#openingCover h1{
+  padding:100px;
+  color:white;
+  
 }
 
 @media only screen and (max-width: 1000px) {
@@ -104,5 +122,6 @@ body {
   }
   #helpmsg{
     position: relative;
+    margin-bottom:0px;
   }
 }
