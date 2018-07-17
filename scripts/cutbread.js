@@ -10,6 +10,7 @@ var numOfSlices = 0;
 var results = [];
 var gfont;
 var displayPercentages = false;
+var dragging = false;
 function preload(){
   //Default bread slice selected for display
   bimg = loadImage(breads[0]);
@@ -53,7 +54,7 @@ function draw(){
 }
 
 function mousePressed(){
-  if (mouseY <= 500 && mouseY >=0 && mouseX >=0 && mouseX <= 500 && started == true){
+  if (mouseY <= 500 && mouseY >=0 && mouseX >=0 && mouseX <= 500 && started == true && dragging == false){
     //Complete the slice if done already
     if (slicing == true){
       slicing = false;
@@ -77,6 +78,7 @@ function keyPressed(){
   if (keyCode === 27){
     slicing = false;
     tempSlice = [];
+    dragging = false;
   }
   else if (keyCode == 68){
     if (displayPercentages == true){
@@ -280,6 +282,26 @@ function dottedLine(x1,y1,x2,y2){
   for (var i = 0; i< dist/15; i++){
     if (i%2 == 0){
       line(x1+i*sx,y1+i*sy,x1+(i+1)*sx,y1+(i+1)*sy);
+    }
+  }
+}
+
+function mouseDragged(){
+  if (dragging == false){
+    dragging = true;
+  }
+}
+function mouseReleased(){
+  if (dragging == true){
+    if (slicing == true){
+      slicing = false;
+      numOfSlices++;
+      tempSlice.push(mouseX,mouseY);
+      var currentSlice = extendV(tempSlice[0],tempSlice[1],tempSlice[2],tempSlice[3])
+      slices.push(currentSlice[0],currentSlice[1],currentSlice[2],currentSlice[3]);
+      tempSlice = [];
+      check();
+      dragging = false;
     }
   }
 }
