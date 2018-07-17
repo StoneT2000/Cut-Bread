@@ -52,6 +52,9 @@ body {
   text-align: center;
   font-size:50px;
 }
+#statsHeadLine{
+  width:500px;
+}
 #messages{
   width: 250px;
   font-size:40px;
@@ -142,5 +145,9 @@ body {
   }
   #displayP{
     top:350px;
+  }
+  #statsHeadLine{
+    text-align: center;
+    width: auto;
   }
 }

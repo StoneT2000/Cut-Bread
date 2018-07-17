@@ -2,7 +2,7 @@
 <head>
   
   <meta charset="UTF-8" />
-  <title>Cut Bread!</title>
+  <title>Cut Bread!!</title>
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel ="stylesheet" href="styles/base.css">
@@ -13,9 +13,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <!--Add additional scripts here-->
   <script src="libraries/p5.js"></script>
-  <script src="scripts/cutbread.js?version=14"></script>
-  <script src="scripts/buttons.js?version=14"></script>
-  <script src="scripts/messages.js?version=14"></script>
+  <script src="scripts/cutbread.js?version=15"></script>
+  <script src="scripts/buttons.js?version=15"></script>
+  <script src="scripts/messages.js?version=15"></script>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Gaegu" rel="stylesheet"> 
   
@@ -27,14 +27,14 @@
   <div class="container">
     <!--All page content goes here -->
     <div class="row mainContent">
-      <div class="centerStaticWidth" style="margin-bottom:10px;margin-top:10px;text-align: center"><h1 style="font-size:70px;color:">Cut Bread!</h1></div>
-      <img src="assets/border.png" width="400" height="77" style="position:absolute;top:0px;z-index:-1;left:50%" class="centerAbsoluteWidth">
+      <div class="centerStaticWidth" style="margin-bottom:10px;margin-top:10px;text-align: center"><h1 style="font-size:70px;color:" id="header">Cut Bread!</h1></div>
+      <img src="assets/border.png" width="400" height="77" style="position:absolute;top:0px;z-index:-1;left:50%" class="centerAbsoluteWidth" id="dashedBorder">
       
       <div id="stats">
         
         <table>
           <h3 id="statsHead">Cutting Stats</h3>
-          <h3 id="statsHead" style="font-size:30px;line-height:10px">- - - - - - - - - -</h3>
+          <h3 id="statsHeadLine" style="font-size:30px;line-height:10px;text-align: center;">- - - - - - - - - -</h3>
           <tr>
             <td>Eveness:</td>
             <td id="eveness">N/A</td>
@@ -47,7 +47,7 @@
       </div>
       <div class="centerAbsoluteWidth" id="clearit"  style="margin-top:0px;">Clear Slices</div>
       <div class="centerAbsoluteWidth" id="displayP">Display Percentages</div>
-      <div class="centerStaticWidth" id="cutbread" style="width:505px;height:505px;">
+      <div class="centerStaticWidth" id="cutbread" style="width:500px;height:500px;">
       </div>
       <h2 style="text-align:center" id="helpmsg">Press ESC to cancel cut</h2>
       <div id="messages">

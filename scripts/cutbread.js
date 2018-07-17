@@ -11,14 +11,50 @@ var results = [];
 var gfont;
 var displayPercentages = false;
 var dragging = false;
+var wWidth = window.innerWidth;
 function preload(){
   //Default bread slice selected for display
   bimg = loadImage(breads[0]);
   gfont = loadFont("Gaegu-Regular.ttf");
 }
 function setup(){
-  breadCanvas = createCanvas(500,500)
-  breadCanvas.parent('cutbread');
+  if (wWidth >= 500){
+    breadCanvas = createCanvas(500,500)
+    breadCanvas.parent('cutbread');
+  }
+  else {
+    breadCanvas = createCanvas(wWidth,wWidth)
+    breadCanvas.parent('cutbread');
+    cWidth = wWidth;
+    //Fixing up mobile view
+    var nW = 0.8*wWidth;
+    var mL = (nW/2) * -1;
+    $(".centerAbsoluteWidth").css("width",nW + "px");
+    $(".centerAbsoluteWidth").css("margin-left",mL + "px");
+    $("#displayP").css("width",nW + "px")
+    $("#displayP").css("margin-left",mL + "px");
+    $("#statsHead").css("width",nW + "px")
+    $("#statsHead").css("margin-left",mL + "px");
+    $("#statsHead").css("left","50%");
+    $("#statsHead").css("position","relative");
+    
+    $("#cutbread").css("width",wWidth+"px");
+    $("#cutbread").css("height",wWidth+"px");
+    
+    $("#stats").css("width",nW + "px")
+    $("#stats").css("margin-left",mL + "px");
+    $("#clearit").css("width",nW + "px")
+    $("#clearit").css("margin-left",mL + "px");
+    if (wWidth <= 470){
+      $("#openingCover h1").css("font-size","30px");
+      
+      $("#openingCover h1").css("line-height","30px");
+    }
+    if (wWidth <= 420){
+      $("#dashedBorder").css("display","none");
+    }
+  }
+  
   
   textFont(gfont);
   //Resolution density d
@@ -32,7 +68,7 @@ function setup(){
 
 function draw(){
   background(255,255,255)
-  image(bimg,0,0,500,500)
+  image(bimg,0,0,cWidth,cWidth)
 
   stroke(255,255,255)
   strokeWeight(5)
@@ -54,7 +90,7 @@ function draw(){
 }
 
 function mousePressed(){
-  if (mouseY <= 500 && mouseY >=0 && mouseX >=0 && mouseX <= 500 && started == true && dragging == false){
+  if (mouseY <= cWidth && mouseY >=0 && mouseX >=0 && mouseX <= cWidth && started == true && dragging == false){
     //Complete the slice if done already
     if (slicing == true){
       slicing = false;
