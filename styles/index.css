@@ -74,8 +74,24 @@ body {
   position:fixed;
   
 }
-#helpmsg{
-  margin-bottom:100px;
+#displayP{
+  position: absolute;
+  top:150px;
+  width:500px;
+  margin-left:-250px;
+  line-height: 22px;
+  font-size:25px;
+  transition:font-size 0.2s;
+  -webkit-transition:font-size 0.2s;
+  -moz-transition:font-size 0.2s;
+  -ms-transition:font-size 0.2s;
+  -o-transition:font-size 0.2s;
+}
+#displayP:hover{
+  color:orange;
+  cursor:pointer;
+  font-size:40px;
+  
 }
 #openingCover h1{
   padding:100px;
@@ -123,5 +139,8 @@ body {
   #helpmsg{
     position: relative;
     margin-bottom:0px;
+  }
+  #displayP{
+    top:350px;
   }
 }

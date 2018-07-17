@@ -80,14 +80,6 @@ function keyPressed(){
     tempSlice = [];
     dragging = false;
   }
-  else if (keyCode == 68){
-    if (displayPercentages == true){
-      displayPercentages = false;
-    }
-    else {
-      displayPercentages = true;
-    }
-  }
 }
 
 //Check the slices for eveness! Then output results and display a nice message :)
@@ -287,7 +279,7 @@ function dottedLine(x1,y1,x2,y2){
 }
 
 function mouseDragged(){
-  if (dragging == false){
+  if (dragging == false && slicing == true){
     dragging = true;
   }
 }

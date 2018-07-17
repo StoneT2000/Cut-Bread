@@ -16,5 +16,13 @@ $(document).on("ready",function(){
     $("#openingCover").remove("click");
     started = true;
   });
+  $("#displayP").on("click",function(){
+    if (displayPercentages == true){
+      displayPercentages = false;
+    }
+    else {
+      displayPercentages = true;
+    }
+  })
 
 })
