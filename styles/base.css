@@ -4,7 +4,8 @@ body, html{
   margin:0;
   padding:0;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-weight: 400;
 }
 
@@ -32,7 +33,9 @@ body, html{
   /*Centers element to middle height of parent element*/
   position: absolute;
   top:50%;
-  transform: translate(0,-50%);
+  -webkit-transform: translate(0,-50%);
+      -ms-transform: translate(0,-50%);
+          transform: translate(0,-50%);
   
 }
 .centerAbsoluteWidth{
@@ -103,7 +106,9 @@ button:focus {outline:0;}
   margin-top:0px;
   font-size: 15px;
   font-weight: 300;
-  transform: translate(0,-3px);
+  -webkit-transform: translate(0,-3px);
+      -ms-transform: translate(0,-3px);
+          transform: translate(0,-3px);
 }
 .footer a:hover{
   border-radius: 50%;
