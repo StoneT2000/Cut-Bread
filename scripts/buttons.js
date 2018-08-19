@@ -24,5 +24,9 @@ $(document).on("ready",function(){
       displayPercentages = true;
     }
   })
+  $("#change_bread").on("click", function(){
+    breadNum = (breadNum + 1) % breads.length;
+    bimg = loadImage(breads[breadNum]);
+  })
 
 })

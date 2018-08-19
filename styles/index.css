@@ -101,7 +101,23 @@ body {
   color:white;
   
 }
-
+#change_bread{
+  cursor: pointer;
+  font-size:30px;
+  width:400px;
+  margin: auto;
+  margin-bottom: 40px;
+  text-align: center;
+    transition:font-size 0.2s;
+  -webkit-transition:font-size 0.2s;
+  -moz-transition:font-size 0.2s;
+  -ms-transition:font-size 0.2s;
+  -o-transition:font-size 0.2s;
+}
+#change_bread:hover{
+  font-size:40px;
+  color:orange;
+}
 @media only screen and (max-width: 1000px) {
   #messages{
     width: 100%;

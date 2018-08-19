@@ -1,5 +1,6 @@
 var breadCanvas;
-var breads = ["breads/breadSlice0.png","breads/Pizza.png"];
+var breadNum = 0;
+var breads = ["breads/breadSlice0.png","breads/breadSlice1.png"];
 var bimg;
 var slicing = false;
 var slices = [];
