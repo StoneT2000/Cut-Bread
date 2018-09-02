@@ -1,15 +1,15 @@
 body {
-  background-image:url('../images/PolyBackground.jpg');
   font-family: 'Gaegu', cursive;
 }
 
-.container{
-
+#buttons{
+  position: absolute;
+  left:50%;
+  top:80px;
 }
-
 #clearit{
   position: absolute;
-  top:90px;
+  top:50px;
   width:500px;
   margin-left:-250px;
   line-height: 50px;
@@ -67,6 +67,7 @@ body {
 #cutbread {
   cursor:crosshair;
   z-index:-10;
+  margin: auto;
 }
 #openingCover {
   z-index:10;
@@ -117,53 +118,4 @@ body {
 #change_bread:hover{
   font-size:40px;
   color:orange;
-}
-@media only screen and (max-width: 1000px) {
-  #messages{
-    width: 100%;
-    margin-left:-50%;
-    left: 50%;
-    position:relative;
-    text-align:center;
-    
-    
-  }
-  #messages h2{
-    line-height: 30px;
-    position:relative;
-    text-align:center;
-
-  }
-  #messageresponse{
-    margin-bottom:60px;
-  }
-  #clearit{
-    position:relative;
-    margin-bottom:100px;
-    top:30px;
-  }
-  #stats{
-    position:relative;
-    width:500px;
-    left:50%;
-    margin-left:-250px;
-    margin-top:25px;
-  }
-  #stats td, tr, th{
-    font-size: 30px;
-    font-weight: 200;
-    width:250px;
-    text-align: right;
-  }
-  #helpmsg{
-    position: relative;
-    margin-bottom:0px;
-  }
-  #displayP{
-    top:350px;
-  }
-  #statsHeadLine{
-    text-align: center;
-    width: auto;
-  }
 }

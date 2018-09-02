@@ -1,5 +1,5 @@
 var started = false;
-$(document).on("ready",function(){
+$(document).ready(function(){
   $("#clearit").on("click",function(){
     console.log("clear slices and reset")
     slices = [];

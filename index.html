@@ -2,19 +2,16 @@
 <head>
   
   <meta charset="UTF-8" />
-  
-  <!-- Make sure mobile width is width of mobile viewport-->
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  
   <title>Cut Bread!!</title>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <link rel ="stylesheet" href="styles/base.css">
   <link rel ="stylesheet" href="styles/index.css">
-
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  
+  <!--Scripts: including jQuery and bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <!--Add additional scripts here-->
   <script src="libraries/p5.js"></script>
   <script src="scripts/cutbread.js?version=16"></script>
@@ -26,14 +23,12 @@
 </head>
 <body>
   <div id="openingCover" class="">
-    <h1 class="centerStaticHeight">Click two points or drag to make a slice and try to make the slices as even as possible. Press ESC to cancel a cut.<br><br>(Click to start cutting)</h1>
+    <h1 class="">Click two points or drag to make a slice and try to make the slices as even as possible. Press ESC to cancel a cut.<br><br>(Click to start cutting)</h1>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <!--All page content goes here -->
-    <div class="row mainContent">
-      <div class="centerStaticWidth" style="margin-bottom:10px;margin-top:10px;text-align: center"><h1 style="font-size:70px;color:" id="header">Cut Bread!</h1></div>
-      <img src="assets/border.png" width="400" height="77" style="position:absolute;top:0px;z-index:-1;left:50%" class="centerAbsoluteWidth" id="dashedBorder">
-      
+    <div class="mainContent">
+      <div style="margin-bottom:10px;margin-top:10px;text-align: center"><h1 style="font-size:70px;color:" id="header">Cut Bread!</h1></div>
       <div id="stats">
         
         <table>
@@ -49,9 +44,12 @@
           </tr>
         </table>
       </div>
-      <div class="centerAbsoluteWidth" id="clearit"  style="margin-top:0px;">Clear Slices</div>
-      <div class="centerAbsoluteWidth" id="displayP">Display Percentages</div>
-      <div class="centerStaticWidth" id="cutbread" style="width:500px;height:500px;">
+      <div id="buttons">
+        <div class="" id="clearit"  style="margin-top:0px;">Clear Slices</div>
+        <div class="" id="displayP">Display Percentages</div>
+      </div>
+      
+      <div class="" id="cutbread" style="width:500px;height:500px;">
       </div>
       <div id="change_bread">Change Bread</div>
       <div id="messages">
@@ -64,11 +62,8 @@
       
     </div>
   </div>
-  <div class="footer" style="">
-    <h6>By Stone T. @</h6>
-    <h6>Github </h6> <a href="https://github.com/StoneT2000"><i class="fa fa-github"></i></a>
-    <h6 style="margin-right: 5px;margin-left: 5px">|</h6>
-    <h6>Email</h6> <a href="mailto:stoneztao@gmail.com"><i class="fa fa-envelope"></i></a>
+  <div class="footer">
+    <span style="margin-right:4px;">By Stone T. @ Github</span><a href="https://github.com/StoneT2000"><i class="fab fa-github"></i></a><span style="border-right: 1px solid #212529;margin:0px 10px 0px 10px;"></span><span style="margin-right:4px;">Email</span><a href="mailto:stoneztao@gmail.com"><i class="fa fa-envelope"></i></a>
   </div>
 </body>
 </html>

@@ -1,56 +1,24 @@
-/* CSS for headers and footers*/
-body, html{
-  color:RGB(30,30,30);
-  margin:0;
-  padding:0;
-  position: relative;
+body{
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-weight: 400;
+  font-weight: 300;
+  color:#212529;
 }
 
-.container{
-  margin-top:10px;
+.container-fluid{
+  text-align: center;
+  /*Set height to 100% if content is less than screen size. otherwise, container-fluid will extend its height to accomadate the content size*/
   width:100%;
-
 }
-.mainContent{
-  display: block;
-}
-
-.centerPercentWidth{
-  margin-left: 10%;
-  width:80%;
-  text-align: center;
-}
-.centerStaticWidth{
-  /*
-  margin-left:50%;
-  transform: translate(-200px,0)*/
-  margin: auto;
-}
-.centerStaticHeight{
-  /*Centers element to middle height of parent element*/
-  position: absolute;
-  top:50%;
-  -webkit-transform: translate(0,-50%);
-      -ms-transform: translate(0,-50%);
-          transform: translate(0,-50%);
-  
-}
-.centerAbsoluteWidth{
-  left:50%;
-  width:400px;
-  position: absolute;
-  margin-left:-200px;
-  text-align: center;
+.mainContent {
+  display:block;
 }
 .header{
   z-index:1000;
 }
 .header ul{
   position:fixed;
-  background-color:RGB(50,50,50);
+  background-color:rgb(52,58,64)
   height:50px;
   top:0px;
   list-style-type:none;
@@ -58,7 +26,6 @@ body, html{
   padding:0px;
   width: 100%;
   z-index:100;
-
 }
 .header li {
   line-height:50px;
@@ -66,7 +33,7 @@ body, html{
   height:50px;
   display:inline-block;
   float:left;
-  background-color:RGB(50,50,50);
+  background-color:rgb(52,58,64)
   color:white;
   padding-left: 20px;
 }
@@ -75,10 +42,10 @@ body, html{
   color:white;
 }
 .header li:hover{
-  background-color: #0275d8;
+  background-color:rgb(52,58,64)
 }
 .header a:hover{
-  color:black;
+  color:#212529;
 }
 button{
   border:none;
@@ -86,31 +53,25 @@ button{
 button:focus {outline:0;}
 .footer{
   position: fixed;
-
-  height: 20px;
-  bottom: 50px;
+  width:100%;
+  height: 30px;
+  bottom: 0px;
   margin-left:20px;
-  margin:none;
-  text-align: center;
-  color:RGB(50,50,50);
+  z-index:9999;
+  color:rgb(52,58,64);
 }
 .footer a{
-  color: RGB(50,50,50);
+  color: RGB(52,58,64);
   font-size: 20px;
+  line-height: 25px;
   margin-left: 5px;
 }
-.footer h6{
-  display: inline-block;
-  line-height: 90px;
-  margin-bottom: 0px;
-  margin-top:0px;
-  font-size: 15px;
+.footer span{
+  display: inline;
+  font-size: 12px;
   font-weight: 300;
-  -webkit-transform: translate(0,-3px);
-      -ms-transform: translate(0,-3px);
-          transform: translate(0,-3px);
+  vertical-align: text-top;
 }
 .footer a:hover{
-  border-radius: 50%;
-  color: #0275d8;
+  color: RGB(26,29,32);
 }
