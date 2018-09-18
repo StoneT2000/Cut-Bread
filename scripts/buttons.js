@@ -19,9 +19,11 @@ $(document).ready(function(){
   $("#displayP").on("click",function(){
     if (displayPercentages == true){
       displayPercentages = false;
+      $("#displayP").text("Display Percentages")
     }
     else {
       displayPercentages = true;
+      $("#displayP").text("Hide Percentages")
     }
   })
   $("#change_bread").on("click", function(){

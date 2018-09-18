@@ -10,7 +10,7 @@ var cWidth = 500;
 var numOfSlices = 0;
 var results = [];
 var gfont;
-var displayPercentages = false;
+var displayPercentages = true;
 var dragging = false;
 var wWidth = window.innerWidth;
 function preload(){

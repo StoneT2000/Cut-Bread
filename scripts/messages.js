@@ -62,7 +62,7 @@ var paMessages5 = [
 var paMessages5_1 = [
   "Cheater, only 1 slice",
   "1 slice...",
-  "You can't fool PA chef!",
+  "You can't fool PA chef by making 1 slice!",
   "Did you actaully cut anything",
   "What did you think not cutting the bread would do?",
   "Trying to fool me? Think again!"
