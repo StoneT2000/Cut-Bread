@@ -1,4 +1,4 @@
-var started = false;
+var started = true;
 $(document).ready(function(){
   $("#clearit").on("click",function(){
     console.log("clear slices and reset")
@@ -16,28 +16,14 @@ $(document).ready(function(){
     $("#openingCover").remove("click");
     started = true;
   });
-  $("#displayP").on("click",function(){
-    if (displayPercentages == true){
-      displayPercentages = false;
-      $("#displayP").text("Display Percentages")
+  $("#stats").on('change', function(){
+    if ($("#stats")[0].checked == true){
+      //$("#stats_wrapper").css("right","100px");
+      $("#stats_table").css("display","block");
     }
     else {
-      displayPercentages = true;
-      $("#displayP").text("Hide Percentages")
+      //$("#stats_wrapper").css("right","10px");
     }
-  })
-  $("#change_bread").on("click", function(){
-    breadNum = (breadNum + 1) % breads.length;
-    bimg = loadImage(breads[breadNum]);
-    console.log("clear slices and reset")
-    slices = [];
-    tempSlice = [];
-    numOfSlices = 0;
-    slicing = false;
-    results = [];
-    $("#messageResponse").text("");
-    $("#numpieces").text(0);
-    $("#eveness").text("N/A")
   })
 
 })
