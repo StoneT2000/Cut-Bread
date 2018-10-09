@@ -13,7 +13,7 @@ var pcanvas;
 var sliceCanvas;
 var slicectxt
 var numOfSlices = 0;
-var breadID = 4;
+var breadID = 2;
 
 function preload(){
   //Default bread slice selected for display
