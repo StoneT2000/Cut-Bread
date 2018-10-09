@@ -1,7 +1,7 @@
-var cWidth = 800;
-var cHeight = 500;
+var cWidth = 1000;
+var cHeight = 490;
 var breadCanvas;
-var breads = ["bread3.png","bread4.png", "bread5.png"];
+var breads = ["bread3.png","bread4.png", "bread5.png","baguette1.png","sourdough1.png"];
 var slicing = false;
 var slices = [];
 var tempSlice = [];
@@ -13,12 +13,12 @@ var pcanvas;
 var sliceCanvas;
 var slicectxt
 var numOfSlices = 0;
-var breadID = 2;
+var breadID = 4;
 
 function preload(){
   //Default bread slice selected for display
   bimg = loadImage("breads/"+breads[breadID]);
-  board = loadImage("cutboard2.png");
+  board = loadImage("cutboard3.png");
   //gfont = loadFont("Gaegu-Regular.ttf");
 }
 function setup(){
