@@ -152,6 +152,11 @@ function switchBread(){
   }
   breadID = newID;
   bimg = loadImage("breads/"+breads[breadID]);
+  
+  //Reset stats
+  $("#numpieces").text(0);
+  $("#numslices").text(numOfSlices);
+  $("#std").text('N/A');
 }
 
 //Calculates the areas of each region created by the slices and updates the results array, whilst also returning the areas themselves.
@@ -320,7 +325,7 @@ function check_and_update_board(){
   //Draw all the slices onto the sliceCanvas
   slicectxt.globalCompositeOperation = 'source-over';
   sliceCanvas.stroke(255,255,255);
-  sliceCanvas.strokeWeight(6);
+  sliceCanvas.strokeWeight(8);
   for (var i = 0; i < slices.length; i+=4){
     //line(slices[i],slices[i+1],slices[i+2],slices[i+3]);
     sliceCanvas.line(slices[i],slices[i+1],slices[i+2],slices[i+3]);
@@ -381,8 +386,5 @@ function check_and_update_board(){
       $("#messageResponse").text(paMessages5[randomNum]);
     }
     
-  }
-  
-  
-  
+  } 
 }

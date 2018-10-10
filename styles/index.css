@@ -63,6 +63,7 @@ body {
   border-spacing:0px;
   border: 2px solid #343a40;
   margin-top:1rem;
+  font-family: Alegreya, sans-serif;
 }
 
 #stats_for_nerds_table tr {
@@ -93,4 +94,8 @@ body {
 }
 #stats_for_nerds_table td:nth-child(even){
   text-align: center;
+}
+#svg_overlay {
+  position: absolute;
+  top:50px;
 }

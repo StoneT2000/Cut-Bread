@@ -26,9 +26,9 @@
   <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
   <!--Add additional scripts here-->
   <script src="libraries/p5.js"></script>
-  <script src="scripts/bread.js?version=20"></script>
-  <script src="scripts/buttons.js?version=20"></script>
-  <script src="scripts/messages.js?version=19"></script>
+  <script src="scripts/bread.js?version=21"></script>
+  <script src="scripts/buttons.js?version=21"></script>
+  <script src="scripts/messages.js?version=21"></script>
   <link href="https://fonts.googleapis.com/css?family=Alegreya|Cookie" rel="stylesheet"> 
     
 </head>
@@ -36,8 +36,11 @@
   <div class="container-fluid">
     <!--All page content goes here -->
     <div class="mainContent">
+      
       <h1 id="title">Cut Bread</h1>
       <div class="" id="cutbread" style="">
+      </div>
+      <div id="svg_overlay">
       </div>
       <button class="bread-btn" onclick="switchBread()">Get a new piece</button>
       <h2 id="comments_title">Chef Comments:</h2>
@@ -61,7 +64,7 @@
     </tr>
     <tr>
       <td>Standard Deviation</td>
-      <td id="std"></td>
+      <td id="std">N/A</td>
     </tr>
   </table>
   </div>
