@@ -53,17 +53,14 @@ var paMessages4 = [
   "Good enough for your average customer",
   ];
 var paMessages5 = [
-  "Cheater",
-  "No way",
-  "How did you get a eveness score above 99.9",
-  "God like cutting",
-  "I want to believe you just made this beautifully even cuts, but no one is this perfect"
+  "Cheater, no way you cut it that well",
+  "No way you cut it that evenly",
+  "How did you make all your slices perfectly even???"
   ];
 var paMessages5_1 = [
-  "Cheater, only 1 slice",
-  "1 slice...",
-  "You can't fool PA chef by making 1 slice!",
   "Did you actaully cut anything",
   "What did you think not cutting the bread would do?",
-  "Trying to fool me? Think again!"
+  "Trying to fool me by not cutting the bread? Think again!",
+  "Actaully cut the bread, that's what this site is about...",
+  "I can see that you didn't cut the bread"
 ]

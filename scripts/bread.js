@@ -1,8 +1,11 @@
 var cWidth = 1000;
-var cHeight = 490;
+var cHeight = 450;
 var breadCanvas;
 //URL's of breads in breads folder
-var breads = ["bread3.png","bread4.png", "bread5.png","baguette1.png","sourdough1.png"];
+var breads = {0:["sourdoughrye.png",'Sourdough Rye'],1:["bread1.png",'Bread'], 2:["sanfranciscosourdough.png",'San Francisco Sourdough'],3:["baguette1.png",'Baguette'],4:["painaulevain.png",'Pain Au Levain'],5:['miche.png', 'Miche'],6:['peasantbread.png','Peasant Bread'],7:['baguette2.png','Baguette'],8:['olivebread.png','Olive Bread'],9:['demibaguette.png','Demi Baguette'],10:['cranberryandpecan.png','Cranberry and Pecan'],11:['ciabattaroll.png','Ciabatta Roll'],12:['ciabattadinnerroll.png', 'Ciabatta Dinner Roll'],13:['ciabatta.png', 'Ciabatta'],14:['12grainandseedroll.png', '12 Grain and Seed Roll'],15:['12grainandseeddinnerroll.png', '12 Grain and Seed Dinner Roll'], 16:['brioche.png','Brioche'],17:['briocheroll.png','Brioche Roll'],18:['poppykaiserroll.png', 'Poppy Kaiser Roll'],19:['raisinandwalnutlevain.png', 'Raisin and Walnut Levain'],20:['sesamekaiserroll.png','Sesame Kaiser Roll'],21:['wheatsourdoughroll.png','Wheat Sourdough Roll'],22:['kaiserroll.png','Kaiser Roll'],23:['oatandcranberryporridgebread.png','Oat and Cranberry Porridge Bread']};
+
+//Number of breads
+var breadcount = 0;
 
 //Whether user is slicing or not
 var slicing = false;
@@ -27,12 +30,20 @@ var numOfSlices = 0;
 var breadID = 2;
 
 function preload(){
-  //Load default bread piece and the cutting board
-  bimg = loadImage("breads/"+breads[breadID]);
+  //Count the number of breads
+  for (key in breads) {
+    breadcount++;
+  }
+  
+  //Load random bread piece and the cutting board
+  breadID = round(random(0,breadcount-1));
+  bimg = loadImage("breads/"+breads[breadID][0]);
+  $("#bread_name").text(breads[breadID][1]);
   board = loadImage("cutboard3.png");
 }
 function setup(){
   cursor(CROSS)
+  
   //Initialize canvases and off screen canvases
   breadCanvas = createCanvas(cWidth,cHeight); //The piece of bread
   boardCanvas = createGraphics(cWidth,cHeight); //Drawing the background cutting board
@@ -105,7 +116,6 @@ function dottedLine(x1,y1,x2,y2){
   for (var i = 0; i< dist2; i++){
     if (i%2 == 0){
       line(x1+i*sx,y1+i*sy,x1+(i+1)*sx,y1+(i+1)*sy);
-      //line(x1+cos(angle)*10*i,y1+sin(angle)*10*i,x1+cos(angle)*10*(i+1),y1+10*(i+1)*sin(angle))
     }
   }
 }
@@ -146,12 +156,15 @@ function switchBread(){
   numOfSlices = 0;
   slicing = false;
   dragging = false;
-  var newID = round(random(0,breads.length-1));
+  
+  //Randomy choose new bread not the same as the last one
+  var newID = round(random(0,breadcount-1));
   if (newID == breadID) {
-    newID = (newID + 1) % breads.length;
+    newID = (newID + 1) % breadcount;
   }
   breadID = newID;
-  bimg = loadImage("breads/"+breads[breadID]);
+  bimg = loadImage("breads/"+breads[breadID][0]);
+  $("#bread_name").text(breads[breadID][1]);
   
   //Reset stats
   $("#numpieces").text(0);
@@ -346,13 +359,17 @@ function check_and_update_board(){
   var stdval = 0;
   //Calculate the score
   var percentages = [];
-  for (var i =0; i<results.length;i++){
+  for (var i=0; i<results.length;i++){
     percentages.push(parseFloat(results[i][0]));
+    if (parseFloat(results[i][0]) == 100) {
+      console.log("100")
+    }
   }
   stdval = std(percentages);
   var score = 100 - stdval;
   score = score.toFixed(2);
   $("#eveness").text(score + "/100");
+  console.log(score);
   $("#std").text(stdval.toFixed(3));
   //Generate the messages in response to the cutting score.
   if (score < 60){
@@ -377,13 +394,9 @@ function check_and_update_board(){
   }
   else {
     //If you got this score, you probably cheated
-    if (numOfSlices <= 1){
+    if (parseFloat(results[0][0]) == 100){
       var randomNum = round(random(0,paMessages5_1.length-1));
       $("#messageResponse").text(paMessages5_1[randomNum]);
-    }
-    else {
-      var randomNum = round(random(0,paMessages5.length-1));
-      $("#messageResponse").text(paMessages5[randomNum]);
     }
     
   } 
