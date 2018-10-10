@@ -17,8 +17,8 @@
   <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
   <!--Add additional scripts here-->
   <script src="libraries/p5.js"></script>
-  <script src="scripts/bread.js?version=19"></script>
-  <script src="scripts/buttons.js?version=19"></script>
+  <script src="scripts/bread.js?version=20"></script>
+  <script src="scripts/buttons.js?version=20"></script>
   <script src="scripts/messages.js?version=19"></script>
   <link href="https://fonts.googleapis.com/css?family=Alegreya|Cookie" rel="stylesheet"> 
     
@@ -36,7 +36,6 @@
       
     </div>
   </div>
-  <!--
   <div id="stats_for_nerds">
   <table id="stats_for_nerds_table">
     <tr>
@@ -44,19 +43,27 @@
       <th>Value</th>
     </tr>
     <tr>
+      <td>Slices</td>
+      <td id="numslices">0</td>
+    </tr>
+    <tr>
+      <td>Pieces</td>
+      <td id="numpieces">0</td>
+    </tr>
+    <tr>
       <td>Standard Deviation</td>
-      <td>30</td>
+      <td id="std"></td>
     </tr>
   </table>
   </div>
-
-  <div id="stats_wrapper">
-    <label>Stats for Nerds </label><input type="checkbox" id="stats">
-  </div>
-  -->
+  
+  
   <br><br>
   <footer class="footer" style="font-family:helvetica">
     <span style="margin-right:4px;">By Stone T. @ Github</span><a href="https://github.com/StoneT2000"><i class="fab fa-github"></i></a><span style="border-right: 1px solid #212529;margin:0px 10px 0px 10px;"></span><span style="margin-right:4px;">Email</span><a href="mailto:stoneztao@gmail.com"><i class="fa fa-envelope"></i></a>
+    <div id="stats_wrapper">
+      <label>Stats for Nerds </label><input type="checkbox" id="stats">
+    </div>
   </footer>
 </body>
 </html>

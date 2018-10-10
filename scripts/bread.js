@@ -337,7 +337,7 @@ function check_and_update_board(){
     count ++;
   }
   $("#numpieces").text(count);
-  
+  $("#numslices").text(numOfSlices);
   var stdval = 0;
   //Calculate the score
   var percentages = [];
@@ -348,7 +348,7 @@ function check_and_update_board(){
   var score = 100 - stdval;
   score = score.toFixed(2);
   $("#eveness").text(score + "/100");
-  
+  $("#std").text(stdval.toFixed(3));
   //Generate the messages in response to the cutting score.
   if (score < 60){
     var randomNum = round(random(0,paMessages0.length-1));

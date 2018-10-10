@@ -19,10 +19,10 @@ $(document).ready(function(){
   $("#stats").on('change', function(){
     if ($("#stats")[0].checked == true){
       //$("#stats_wrapper").css("right","100px");
-      $("#stats_table").css("display","block");
+      $("#stats_for_nerds").css("display","block");
     }
     else {
-      //$("#stats_wrapper").css("right","10px");
+      $("#stats_for_nerds").css("display","none");
     }
   })
 

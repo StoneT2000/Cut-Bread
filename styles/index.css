@@ -50,22 +50,24 @@ body {
 }
 #stats_wrapper{
   float:right;
-  position: absolute;
   height:28px;
-  bottom:0px;
-  right:10px;
-  z-index:10000;
   font-size:14px;
   font-family:helvetica;
+  margin-right:30px;
+}
+#stats_for_nerds{
+  display:none;
 }
 #stats_for_nerds_table {
-  width: 400px;
   margin: auto;
-  font-family: sans-serif;
+  border-spacing:0px;
+  border: 2px solid #343a40;
+  margin-top:1rem;
 }
 
 #stats_for_nerds_table tr {
-  border-bottom: 1px solid black;
+  margin:0px;
+  padding:0px;
 }
 
 #stats_for_nerds_table th {
@@ -74,14 +76,21 @@ body {
   color: white;
   font-weight: 300;
   background-color: #6c757d;
-  border-top: 5px solid #343a40;
-  border-right: 5px solid #343a40;
-  border-left: 5px solid #343a40;
+  border-top: 2px solid #343a40;
+  border-right: 2px solid #343a40;
+  border-bottom: 2px solid #343a40;
+  border-left: 2px solid #343a40;
+
 }
 
 #stats_for_nerds_table td {
+  color:#343a40;
+  border-bottom: 2px solid #343a40;
   padding: 6px;
   font-size: 20px;
-  border-right: 5px solid #343a40;
-  border-left: 5px solid #343a40;
+  border-right: 2px solid #343a40;
+  border-left: 2px solid #343a40;
+}
+#stats_for_nerds_table td:nth-child(even){
+  text-align: center;
 }
