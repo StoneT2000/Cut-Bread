@@ -47,11 +47,11 @@ header a:hover {
 }
 #cutbread {
   cursor:crosshair;
+  margin-left:calc(10% + 30px);
   margin-top:10px;
   margin-bottom: 10px;
-  margin-left:100px;
-  position: relative;
-  overflow-x
+  width:80%;
+
 }
 
 #messageResponse {

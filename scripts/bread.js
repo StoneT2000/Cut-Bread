@@ -1,4 +1,4 @@
-var cWidth = 1000;
+var cWidth = 900;
 var cHeight = 450;
 var breadCanvas;
 //URL's of breads in breads folder
@@ -39,7 +39,7 @@ function preload(){
   breadID = round(random(0,breadcount-1));
   bimg = loadImage("breads/"+breads[breadID][0]);
   $("#bread_name").text(breads[breadID][1]);
-  board = loadImage("cutboard3.png");
+  board = loadImage("cutboard6small.png");
 }
 function setup(){
   cursor(CROSS)
