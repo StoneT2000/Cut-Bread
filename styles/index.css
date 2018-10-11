@@ -1,6 +1,5 @@
 body {
   background-color: #fefefe;
-
   font-family: 'Cookie', cursive, helvetica;
   color:rgb(164,114,58);
 }
@@ -20,7 +19,6 @@ header .tdiv {
   width:150px;
   margin-left: 20px;
   padding-top: 5px;
-  
 }
 .tdiv::before{
   content:'';

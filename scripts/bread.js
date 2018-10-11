@@ -1,4 +1,4 @@
-var cWidth = 900;
+var cWidth = 1100;
 var cHeight = 450;
 var breadCanvas;
 //URL's of breads in breads folder
@@ -39,7 +39,7 @@ function preload(){
   breadID = round(random(0,breadcount-1));
   bimg = loadImage("breads/"+breads[breadID][0]);
   $("#bread_name").text(breads[breadID][1]);
-  board = loadImage("cutboard6small.png");
+  board = loadImage("cuttingboard.jpg");
 }
 function setup(){
   cursor(CROSS)
@@ -79,9 +79,6 @@ function draw(){
   imageMode(CORNER)
   stroke(255);
   strokeWeight(5);
-  
-  //Displace the currentslice
-  //displaySlices(slices);
   
   //Display the slice canvas, which is just the cutting board overlayed over the lines of the slices.
   image(sliceCanvas,0,0);
