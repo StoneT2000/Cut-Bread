@@ -41,7 +41,19 @@ function preload(){
   $("#bread_name").text(breads[breadID][1]);
   board = loadImage("cuttingboard.jpg");
 }
+var scale = 1;
 function setup(){
+  if (windowWidth <= 1000) {
+    scale = windowWidth/1000;
+    $("#cutbread").css("left","calc(50% + " + 30*scale + "px)")
+    cWidth = cWidth*scale;
+    cHeight = cHeight*scale;
+    $("#cutbread_wrapper").css("height","" + cHeight + "px")
+    
+  }
+  else {
+    scale = 1;
+  }
   cursor(CROSS)
   
   //Initialize canvases and off screen canvases
@@ -74,7 +86,7 @@ function draw(){
   
   //Display Bread
   imageMode(CENTER);
-  image(bimg,cWidth/2-40,cHeight/2);
+  image(bimg,cWidth/2-40*scale,cHeight/2, bimg.width*scale, bimg.height*scale);
   
   imageMode(CORNER)
   stroke(255);
@@ -398,3 +410,22 @@ function check_and_update_board(){
     
   } 
 }
+/*
+function windowResized() {
+  if (windowWidth <= 1000) {
+    scale = windowWidth/1000;
+  }
+  else {
+    scale = 1;
+  }
+      $("#cutbread").css("left","calc(50% + " + 30*scale + "px)")
+    cWidth = cWidth*scale;
+    cHeight = cHeight*scale;
+    $("#cutbread_wrapper").css("height","" + cHeight + "px")
+  breadCanvas = createCanvas(cWidth,cHeight);
+  boardCanvas = createGraphics(cWidth,cHeight);
+  sliceCanvas = createGraphics(cWidth,cHeight);
+  breadCanvas.parent('cutbread');
+
+}
+*/

@@ -25,11 +25,11 @@ header .tdiv {
 }
 header span {
   font-family: Alegreya, cursive;
-  font-size:14px;
+  font-size:13px;
 }
 header a {
   color:rgb(164,114,58);
-  font-size:24.7px;
+  font-size:23px;
   text-decoration: none;
   display:inline-block;
   height:26px;
@@ -49,7 +49,7 @@ header a:hover {
   height: 450px;
   margin-top: 10px;
   margin-bottom: 10px;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 #cutbread {
   cursor:crosshair;
@@ -174,5 +174,15 @@ header a:hover {
     margin-left:50%;
     transform:translateX(-50%);
     margin-bottom: 10px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #stats_wrapper {
+    position: absolute;
+    bottom: 37px;
+    border-bottom: 1px solid #343a40;
+  }
+  #messageResponse {
+    margin-bottom: 30px;
   }
 }
