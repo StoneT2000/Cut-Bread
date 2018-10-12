@@ -46,8 +46,8 @@ function setup(){
   if (windowWidth <= 1000) {
     scale = windowWidth/1000;
     $("#cutbread").css("left","calc(50% + " + 30*scale + "px)")
-    cWidth = cWidth*scale;
-    cHeight = cHeight*scale;
+    cWidth = round(cWidth*scale);
+    cHeight = round(cHeight*scale);
     $("#cutbread_wrapper").css("height","" + cHeight + "px")
     
   }
