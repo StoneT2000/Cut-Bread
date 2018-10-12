@@ -186,3 +186,24 @@ header a:hover {
     margin-bottom: 30px;
   }
 }
+#sorry {
+  position: fixed;
+  z-index:99999;
+  background-color:white;
+  width:100%;
+  top:0px;
+  height:100vh;
+
+  text-align: center;
+}
+#sorry h3 {
+  font-size:50px;
+  font-weight:100;
+  position: fixed;
+  top:50%;
+  line-height: 50px;
+  margin-top: -100px;
+  text-align: center;
+  width:100%;
+  
+}
