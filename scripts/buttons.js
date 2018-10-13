@@ -27,8 +27,5 @@ $(document).ready(function(){
       displayPercentages = false;
     }
   })
-  $("#cutbread").on("touchmove", function (e) {
-    e.preventDefault();
-  })
 
 })

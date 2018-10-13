@@ -343,7 +343,9 @@ function touchEnded(){
 }
 function touchMoved() {
   //console.log("moving")
-  dragging = true;
+  if (dragging == false && slicing == true){
+    dragging = true;
+  }
 }
 
 
