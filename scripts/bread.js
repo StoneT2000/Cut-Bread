@@ -210,7 +210,7 @@ function calculateAreas(slices){
   
   //Draw the bread back on
   imageMode(CENTER);
-  image(bimg,cWidth/2-40,cHeight/2)
+  image(bimg,cWidth/2-40*scale,cHeight/2, bimg.width*scale, bimg.height*scale);
   imageMode(CORNER)
   
   //Update the pixels[] array
