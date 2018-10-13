@@ -1,5 +1,5 @@
 var cWidth = 800;
-var cHeight = 600;
+var cHeight = 450;
 var breadCanvas;
 //URL's of breads in breads folder
 var breads = {0:["sourdoughrye.png",'Sourdough Rye'],1:["bread1.png",'Bread'], 2:["sanfranciscosourdough.png",'San Francisco Sourdough'],3:["baguette2.png",'Baguette'],4:["painaulevain.png",'Pain Au Levain'],5:['miche.png', 'Miche'],6:['peasantbread.png','Peasant Bread'],7:['baguette2.png','Baguette'],8:['olivebread.png','Olive Bread'],9:['demibaguette.png','Demi Baguette'],10:['cranberryandpecan.png','Cranberry and Pecan'],11:['ciabattaroll.png','Ciabatta Roll'],12:['ciabattadinnerroll.png', 'Ciabatta Dinner Roll'],13:['ciabatta.png', 'Ciabatta'],14:['12grainandseedroll.png', '12 Grain and Seed Roll'],15:['12grainandseeddinnerroll.png', '12 Grain and Seed Dinner Roll'], 16:['brioche.png','Brioche'],17:['briocheroll.png','Brioche Roll'],18:['poppykaiserroll.png', 'Poppy Kaiser Roll'],19:['raisinandwalnutlevain.png', 'Raisin and Walnut Levain'],20:['sesamekaiserroll.png','Sesame Kaiser Roll'],21:['wheatsourdoughroll.png','Wheat Sourdough Roll'],22:['kaiserroll.png','Kaiser Roll'],23:['oatandcranberryporridgebread.png','Oat and Cranberry Porridge Bread']};
@@ -79,6 +79,7 @@ function setup(){
   else {
     cWidth = 800
     cHeight = 450
+    $("#cutbread_wrapper").css("height","" + cHeight + "px")
     scale = 1;
   }
   cursor(CROSS)
