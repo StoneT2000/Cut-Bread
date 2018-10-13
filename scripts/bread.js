@@ -320,34 +320,40 @@ function touchStarted() {
       slicing = true;
       tempSlice.push(mouseX,mouseY);
     }
+    return false;
   }
-  return false;
-  
 }
 function touchEnded(){
-  console.log("end")
-  if (dragging == true){
-    if (slicing == true){
-      slicing = false;
-      numOfSlices++;
-      tempSlice.push(mouseX,mouseY);
-      var currentSlice = extendV(tempSlice[0],tempSlice[1],tempSlice[2],tempSlice[3])
-      slices.push(currentSlice[0],currentSlice[1],currentSlice[2],currentSlice[3]);
-      tempSlice = [];
-      check_and_update_board();
-      dragging = false;
+  if (inCanvas(mouseX,mouseY)){
+    console.log("end")
+    if (dragging == true){
+      if (slicing == true){
+        slicing = false;
+        numOfSlices++;
+        tempSlice.push(mouseX,mouseY);
+        var currentSlice = extendV(tempSlice[0],tempSlice[1],tempSlice[2],tempSlice[3])
+        slices.push(currentSlice[0],currentSlice[1],currentSlice[2],currentSlice[3]);
+        tempSlice = [];
+        check_and_update_board();
+        dragging = false;
+      }
     }
+    dragging = false;
+    return false;
   }
-  dragging = false;
-  return false;
 }
 function touchMoved() {
   //console.log("moving")
-  if (dragging == false && slicing == true){
+  if (dragging == false && slicing == true && inCanvas(mouseX,mouseY)){
     dragging = true;
   }
 }
-
+function inCanvas(x,y){
+  if (y <= cHeight && y >=0 && x >=0 && x <= cWidth) {
+    return true;
+  }
+  return false;
+}
 
 //If the mouse is being dragged, set dragging to true if it was previously false.
 //If the user is already slicing but tried to drag, don't set dragging as true.
