@@ -46,6 +46,7 @@ header a:hover {
 #cutbread_wrapper {
   position: relative;
   width:100%;
+
   height: 450px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -55,7 +56,7 @@ header a:hover {
   cursor:crosshair;
   /*margin-left:calc(10% + 30px);*/
   position: absolute;
-  left:calc(50% + 30px);
+  left:calc(50%);
   transform: translate(-50%,0);
 }
 
@@ -87,11 +88,12 @@ header a:hover {
   cursor:pointer;
 }
 #stats_wrapper{
-  float:right;
+
   height:28px;
   font-size:14px;
   font-family:helvetica;
-  margin-right:40px;
+  padding-right:20px;
+  margin-top:20px;
 }
 #stats_for_nerds{
   display:none;
@@ -177,12 +179,8 @@ header a:hover {
   }
 }
 @media only screen and (max-width: 600px) {
+
   #stats_wrapper {
-    position: absolute;
-    bottom: 37px;
-    border-bottom: 1px solid #343a40;
-  }
-  #messageResponse {
     margin-bottom: 30px;
   }
 }
@@ -206,4 +204,11 @@ header a:hover {
   text-align: center;
   width:100%;
   
+}
+.footer {
+  position: relative;
+  margin-left: 0px;
+}
+.footer span:nth-child(1){
+  padding-left: 20px;
 }

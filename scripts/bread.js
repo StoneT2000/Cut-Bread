@@ -1,8 +1,8 @@
-var cWidth = 1100;
-var cHeight = 450;
+var cWidth = 900;
+var cHeight = 600;
 var breadCanvas;
 //URL's of breads in breads folder
-var breads = {0:["sourdoughrye.png",'Sourdough Rye'],1:["bread1.png",'Bread'], 2:["sanfranciscosourdough.png",'San Francisco Sourdough'],3:["baguette1.png",'Baguette'],4:["painaulevain.png",'Pain Au Levain'],5:['miche.png', 'Miche'],6:['peasantbread.png','Peasant Bread'],7:['baguette2.png','Baguette'],8:['olivebread.png','Olive Bread'],9:['demibaguette.png','Demi Baguette'],10:['cranberryandpecan.png','Cranberry and Pecan'],11:['ciabattaroll.png','Ciabatta Roll'],12:['ciabattadinnerroll.png', 'Ciabatta Dinner Roll'],13:['ciabatta.png', 'Ciabatta'],14:['12grainandseedroll.png', '12 Grain and Seed Roll'],15:['12grainandseeddinnerroll.png', '12 Grain and Seed Dinner Roll'], 16:['brioche.png','Brioche'],17:['briocheroll.png','Brioche Roll'],18:['poppykaiserroll.png', 'Poppy Kaiser Roll'],19:['raisinandwalnutlevain.png', 'Raisin and Walnut Levain'],20:['sesamekaiserroll.png','Sesame Kaiser Roll'],21:['wheatsourdoughroll.png','Wheat Sourdough Roll'],22:['kaiserroll.png','Kaiser Roll'],23:['oatandcranberryporridgebread.png','Oat and Cranberry Porridge Bread']};
+var breads = {0:["sourdoughrye.png",'Sourdough Rye'],1:["bread1.png",'Bread'], 2:["sanfranciscosourdough.png",'San Francisco Sourdough'],3:["baguette2.png",'Baguette'],4:["painaulevain.png",'Pain Au Levain'],5:['miche.png', 'Miche'],6:['peasantbread.png','Peasant Bread'],7:['baguette2.png','Baguette'],8:['olivebread.png','Olive Bread'],9:['demibaguette.png','Demi Baguette'],10:['cranberryandpecan.png','Cranberry and Pecan'],11:['ciabattaroll.png','Ciabatta Roll'],12:['ciabattadinnerroll.png', 'Ciabatta Dinner Roll'],13:['ciabatta.png', 'Ciabatta'],14:['12grainandseedroll.png', '12 Grain and Seed Roll'],15:['12grainandseeddinnerroll.png', '12 Grain and Seed Dinner Roll'], 16:['brioche.png','Brioche'],17:['briocheroll.png','Brioche Roll'],18:['poppykaiserroll.png', 'Poppy Kaiser Roll'],19:['raisinandwalnutlevain.png', 'Raisin and Walnut Levain'],20:['sesamekaiserroll.png','Sesame Kaiser Roll'],21:['wheatsourdoughroll.png','Wheat Sourdough Roll'],22:['kaiserroll.png','Kaiser Roll'],23:['oatandcranberryporridgebread.png','Oat and Cranberry Porridge Bread']};
 
 //Number of breads
 var breadcount = 0;
@@ -28,6 +28,7 @@ var sliceCanvas;
 var slicectxt
 var numOfSlices = 0;
 var breadID = 2;
+var changedo = 0;
 
 function preload(){
   //Count the number of breads
@@ -39,24 +40,34 @@ function preload(){
   breadID = round(random(0,breadcount-1));
   bimg = loadImage("breads/"+breads[breadID][0]);
   $("#bread_name").text(breads[breadID][1]);
-  board = loadImage("cuttingboard.jpg");
+  board = loadImage("cuttingboard3.jpg");
 }
 var scale = 1;
 var fontsize = 16;
 function setup(){
   if (windowWidth <= 1000) {
-    scale = windowWidth/1000;
-    $("#cutbread").css("left","calc(50% + " + 30*scale + "px)")
-    cWidth = round(cWidth*scale);
-    cHeight = round(cHeight*scale);
+
+    //scale = 0.8
+    cWidth = round(windowWidth*0.8);
+    cHeight = round(windowHeight*0.6);
+    scale = cWidth/900
+
+    //make sure width is no more than 2 times the height
+    if (cHeight * 2 < cWidth) {
+      cWidth = cHeight*2;
+      scale = cWidth/900
+    }
+    $("#cutbread").css("left","calc(50%)")
     $("#cutbread_wrapper").css("height","" + cHeight + "px")
     fontsize = 14;
   }
   else {
+    cWidth = 900
+    cHeight = 450
     scale = 1;
   }
   cursor(CROSS)
-  
+  //cWidth = cWidth - 100;
   //Initialize canvases and off screen canvases
   breadCanvas = createCanvas(cWidth,cHeight); //The piece of bread
   boardCanvas = createGraphics(cWidth,cHeight); //Drawing the background cutting board
@@ -75,8 +86,15 @@ function setup(){
   //Get context of bread canvas and the slices canvas
   context = document.getElementById("defaultCanvas0").getContext('2d');
   slicectxt = sliceCanvas.elt.getContext('2d');
-  
+  if (windowWidth <= windowHeight) {
+    changedo = 1;
+  }
+  else {
+    changedo = 0;
+  }
 }
+
+
 function draw(){
   clear();
   
@@ -85,9 +103,27 @@ function draw(){
   boardCanvas.image(board,0,0,cWidth,cHeight);
   image(boardCanvas,0,0);
   
-  //Display Bread
-  imageMode(CENTER);
-  image(bimg,cWidth/2-40*scale,cHeight/2, bimg.width*scale, bimg.height*scale);
+  //Display Bread and react to possible orientation changes 
+  if (windowWidth > windowHeight){
+    if (changedo == 1){
+      changedo = 0;
+      setup();
+    }
+    imageMode(CENTER);
+    image(bimg,cWidth/2,cHeight/2, bimg.width*scale, bimg.height*scale);
+  }
+  else if (windowWidth <= windowHeight) {
+    if (changedo == 0){
+      changedo = 1;
+      setup();
+    }
+    translate(cWidth/2,cHeight/2)
+    rotate(PI/2.0)
+    imageMode(CENTER);
+    scale = 0.6;
+    image(bimg,0,0, bimg.width*scale, bimg.height*scale);
+  }
+  
   
   imageMode(CORNER)
   stroke(255);
@@ -211,7 +247,7 @@ function calculateAreas(slices){
   
   //Draw the bread back on
   imageMode(CENTER);
-  image(bimg,cWidth/2-40*scale,cHeight/2, bimg.width*scale, bimg.height*scale);
+  image(bimg,cWidth/2,cHeight/2, bimg.width*scale, bimg.height*scale);
   imageMode(CORNER)
   
   //Update the pixels[] array
@@ -466,22 +502,8 @@ function check_and_update_board(){
     
   } 
 }
-/*
+
 function windowResized() {
-  if (windowWidth <= 1000) {
-    scale = windowWidth/1000;
-  }
-  else {
-    scale = 1;
-  }
-      $("#cutbread").css("left","calc(50% + " + 30*scale + "px)")
-    cWidth = cWidth*scale;
-    cHeight = cHeight*scale;
-    $("#cutbread_wrapper").css("height","" + cHeight + "px")
-  breadCanvas = createCanvas(cWidth,cHeight);
-  boardCanvas = createGraphics(cWidth,cHeight);
-  sliceCanvas = createGraphics(cWidth,cHeight);
-  breadCanvas.parent('cutbread');
+  setup();
 
 }
-*/
