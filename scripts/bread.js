@@ -1,4 +1,4 @@
-var cWidth = 900;
+var cWidth = 800;
 var cHeight = 600;
 var breadCanvas;
 //URL's of breads in breads folder
@@ -45,6 +45,16 @@ function preload(){
 var scale = 1;
 var fontsize = 16;
 function setup(){
+  //reset variables
+  scale = 1;
+  fontsize = 16;
+  slices = [];
+  tempSlice = [];
+  numOfSlices = 0;
+  results = [];
+  slicing = false;
+  
+  
   if (windowWidth <= 1000) {
 
     //scale = 0.8
@@ -62,7 +72,7 @@ function setup(){
     fontsize = 14;
   }
   else {
-    cWidth = 900
+    cWidth = 800
     cHeight = 450
     scale = 1;
   }
@@ -122,6 +132,7 @@ function draw(){
     imageMode(CENTER);
     scale = 0.6;
     image(bimg,0,0, bimg.width*scale, bimg.height*scale);
+    resetMatrix();
   }
   
   
