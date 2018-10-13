@@ -388,7 +388,7 @@ function touchStarted() {
 }
 function touchEnded(){
   if (inCanvas(mouseX,mouseY)){
-    console.log("end")
+    //console.log("end")
     if (dragging == true){
       if (slicing == true){
         slicing = false;
@@ -431,7 +431,7 @@ var mobile = true;
 function mouseReleased(){
 
   if (dragging == true && mobile == false){
-      console.log("mouse release",tempSlice)
+      //console.log("mouse release",tempSlice)
     if (slicing == true){
       slicing = false;
       numOfSlices++;
@@ -490,7 +490,7 @@ function check_and_update_board(){
   for (var i=0; i<results.length;i++){
     percentages.push(parseFloat(results[i][0]));
     if (parseFloat(results[i][0]) == 100) {
-      console.log("100")
+      //console.log("100")
     }
   }
   stdval = std(percentages);
@@ -522,7 +522,7 @@ function check_and_update_board(){
   }
   else {
     //If you got this score, you probably cheated
-    if (parseFloat(results[0][0]) == 100){
+    if (results.length > 0 && parseFloat(results[0][0]) == 100){
       var randomNum = round(random(0,paMessages5_1.length-1));
       $("#messageResponse").text(paMessages5_1[randomNum]);
     }
