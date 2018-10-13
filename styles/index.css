@@ -184,26 +184,26 @@ header a:hover {
     margin-bottom: 30px;
   }
 }
-#sorry {
+#sorry, #loading_message {
   position: fixed;
   z-index:99999;
   background-color:white;
   width:100%;
   top:0px;
   height:100vh;
-
   text-align: center;
 }
-#sorry h3 {
+#sorry h3, #loading_message h3 {
   font-size:50px;
-  font-weight:100;
-  position: fixed;
+  font-weight:300;
+  position: relative;
   top:50%;
   line-height: 50px;
-  margin-top: -100px;
+  transform: translateY(-50%);
   text-align: center;
-  width:100%;
-  
+  width:80%;
+  margin-left:10%;
+  margin: auto;
 }
 .footer {
   position: relative;

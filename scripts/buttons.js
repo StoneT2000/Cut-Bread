@@ -1,4 +1,5 @@
 var started = true;
+
 $(document).ready(function(){
   $("#sorry").css("display","none");
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {

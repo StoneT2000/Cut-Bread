@@ -30,6 +30,7 @@ var numOfSlices = 0;
 var breadID = 2;
 var changedo = 0;
 
+
 function preload(){
   //Count the number of breads
   for (key in breads) {
@@ -41,11 +42,15 @@ function preload(){
   bimg = loadImage("breads/"+breads[breadID][0]);
   $("#bread_name").text(breads[breadID][1]);
   board = loadImage("cuttingboard3.jpg");
+  
 }
 var scale = 1;
 var fontsize = 16;
 function setup(){
   //reset variables
+  console.log("setting up")
+
+  $("#loading_message").css('display','none')
   scale = 1;
   fontsize = 16;
   slices = [];
