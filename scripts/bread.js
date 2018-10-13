@@ -257,8 +257,18 @@ function calculateAreas(slices){
   background(255);
   
   //Draw the bread back on
+  
   imageMode(CENTER);
-  image(bimg,cWidth/2,cHeight/2, bimg.width*scale, bimg.height*scale);
+  if (windowWidth <= windowHeight) {
+    translate(cWidth/2,cHeight/2)
+    rotate(PI/2.0)
+    image(bimg,0,0, bimg.width*scale, bimg.height*scale);
+    resetMatrix();
+  }
+  else {
+    image(bimg,cWidth/2,cHeight/2, bimg.width*scale, bimg.height*scale);
+  }
+  
   imageMode(CORNER)
   
   //Update the pixels[] array
