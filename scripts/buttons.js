@@ -1,12 +1,13 @@
 var started = true;
 $(document).ready(function(){
+  $("#sorry").css("display","none");
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     //Check if on mobile or not
-    $("body").css("overflow","hidden");
+    //$("body").css("overflow","hidden");
     
   }
   else {
-    $("#sorry").css("display","none");
+    //$("#sorry").css("display","none");
   }
   $("#percentages")[0].checked = true;
   $("#stats").on('change', function(){
