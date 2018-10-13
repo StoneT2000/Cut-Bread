@@ -3,9 +3,14 @@ body,html{
           box-sizing: border-box;
   font-weight: 300;
   color:#212529;
-  margin:0px;
+  margin:0px;position: fixed;overflow: hidden;
 }
-
+.mainwrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
 .container-fluid{
   text-align: center;
   /*Set height to 100% if content is less than screen size. otherwise, container-fluid will extend its height to accomadate the content size*/
