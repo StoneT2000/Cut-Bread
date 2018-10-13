@@ -4,9 +4,10 @@ $(document).ready(function(){
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     //Check if on mobile or not
     //$("body").css("overflow","hidden");
-    
+    mobile = true;
   }
   else {
+    mobile = false;
     //$("#sorry").css("display","none");
   }
   $("#percentages")[0].checked = true;

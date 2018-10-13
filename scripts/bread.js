@@ -42,6 +42,7 @@ function preload(){
   board = loadImage("cuttingboard.jpg");
 }
 var scale = 1;
+var fontsize = 16;
 function setup(){
   if (windowWidth <= 1000) {
     scale = windowWidth/1000;
@@ -49,7 +50,7 @@ function setup(){
     cWidth = round(cWidth*scale);
     cHeight = round(cHeight*scale);
     $("#cutbread_wrapper").css("height","" + cHeight + "px")
-    
+    fontsize = 14;
   }
   else {
     scale = 1;
@@ -69,7 +70,7 @@ function setup(){
   loadPixels();
   
   textAlign(CENTER)
-  textSize(16)
+  textSize(fontsize)
   
   //Get context of bread canvas and the slices canvas
   context = document.getElementById("defaultCanvas0").getContext('2d');
@@ -136,7 +137,7 @@ function fget(x,y){
 }
 function mousePressed(){
   //If mouse is within canvas, and user is not dragging
-  if (mouseY <= cHeight && mouseY >=0 && mouseX >=0 && mouseX <= cWidth && started == true && dragging == false){
+  if (mouseY <= cHeight && mouseY >=0 && mouseX >=0 && mouseX <= cWidth && started == true && dragging == false && mobile == false){
     //If this is the user's second click, complete the slice if not completed already.
     if (slicing == true){
       slicing = false;
@@ -303,16 +304,63 @@ function extendV(x1,y1,x2,y2){
   return [x1-1000,y1-1000*slope,x2+1000,y2+1000*slope];
   
 }
+function touchStarted() {
+  if (mouseY <= cHeight && mouseY >=0 && mouseX >=0 && mouseX <= cWidth && started == true && dragging == false){
+    //If this is the user's second click, complete the slice if not completed already.
+    if (slicing == true){
+      slicing = false;
+      numOfSlices++;
+      tempSlice.push(mouseX,mouseY);
+      var currentSlice = extendV(tempSlice[0],tempSlice[1],mouseX,mouseY)
+      slices.push(currentSlice[0],currentSlice[1],currentSlice[2],currentSlice[3]);
+      tempSlice = [];
+      check_and_update_board();
+    }
+    else{
+      slicing = true;
+      tempSlice.push(mouseX,mouseY);
+    }
+  }
+  return false;
+  
+}
+function touchEnded(){
+  console.log("end")
+  if (dragging == true){
+    if (slicing == true){
+      slicing = false;
+      numOfSlices++;
+      tempSlice.push(mouseX,mouseY);
+      var currentSlice = extendV(tempSlice[0],tempSlice[1],tempSlice[2],tempSlice[3])
+      slices.push(currentSlice[0],currentSlice[1],currentSlice[2],currentSlice[3]);
+      tempSlice = [];
+      check_and_update_board();
+      dragging = false;
+    }
+  }
+  dragging = false;
+  return false;
+}
+function touchMoved() {
+  //console.log("moving")
+  dragging = true;
+}
+
+
 //If the mouse is being dragged, set dragging to true if it was previously false.
 //If the user is already slicing but tried to drag, don't set dragging as true.
 function mouseDragged(){
+  //console.log("mouse drag")
   if (dragging == false && slicing == true){
     dragging = true;
   }
 }
 //When user releases the mouse, if dragging and slicing, store the slice result and calculate the areas.
+var mobile = true;
 function mouseReleased(){
-  if (dragging == true){
+
+  if (dragging == true && mobile == false){
+      console.log("mouse release",tempSlice)
     if (slicing == true){
       slicing = false;
       numOfSlices++;
