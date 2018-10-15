@@ -28,7 +28,7 @@ var sliceCanvas;
 var slicectxt
 var numOfSlices = 0;
 var breadID = 2;
-var changedo = 0;
+var orientation = 0; //0 is landscape, 1 is portrait orientation
 
 
 function preload(){
@@ -103,10 +103,10 @@ function setup(){
   context = document.getElementById("defaultCanvas0").getContext('2d');
   slicectxt = sliceCanvas.elt.getContext('2d');
   if (windowWidth <= windowHeight) {
-    changedo = 1;
+    orientation = 1;
   }
   else {
-    changedo = 0;
+    orientation = 0;
   }
 }
 
@@ -121,16 +121,16 @@ function draw(){
   
   //Display Bread and react to possible orientation changes 
   if (windowWidth > windowHeight){
-    if (changedo == 1){
-      changedo = 0;
+    if (orientation == 1){
+      orientation = 0;
       setup();
     }
     imageMode(CENTER);
     image(bimg,cWidth/2,cHeight/2, bimg.width*scale, bimg.height*scale);
   }
   else if (windowWidth <= windowHeight) {
-    if (changedo == 0){
-      changedo = 1;
+    if (orientation == 0){
+      orientation = 1;
       setup();
     }
     translate(cWidth/2,cHeight/2)
