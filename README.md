@@ -2,6 +2,9 @@
 That's literally it, see how good you are at cutting bread with a friendly passive-aggresive chef cheering you on
 
 Online demo of this web app at https://stonet2000.github.io/Cut-Bread/
+
+<img src="https://github.com/StoneT2000/StoneT2000.github.io/blob/master/images/cutbread3.png"></img>
+
 ## Technical
 Uses HTML, Javascript, CSS, and p5.js library
 
