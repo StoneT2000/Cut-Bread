@@ -128,7 +128,7 @@ function draw(){
     imageMode(CENTER);
     image(bimg,cWidth/2,cHeight/2, bimg.width*scale, bimg.height*scale);
   }
-  else if (windowWidth <= windowHeight) {
+  else if (windowWidth <= windowHeight && mobile == false) {
     if (orientation == 0){
       orientation = 1;
       setup();
