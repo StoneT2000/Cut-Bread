@@ -120,7 +120,7 @@ function draw(){
   image(boardCanvas,0,0);
   
   //Display Bread and react to possible orientation changes 
-  if (windowWidth > windowHeight){
+  if (windowWidth > windowHeight || mobile == true){
     if (orientation == 1){
       orientation = 0;
       setup();
