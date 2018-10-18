@@ -292,7 +292,8 @@ function calculateAreas(slices){
           hash_in.push(side(i,j,slices[k],slices[k+1],slices[k+2],slices[k+3]));
         }
         //Hash is used as a key in areas, centersx, centersy objects.
-        var hash = hash_in.join('');
+        var hash = hashRegion(hash_in);
+        
         //If hash not initialized already, initialize it into areas object
         if (areas[hash]){
           areas[hash]++;
@@ -340,6 +341,21 @@ function side(x1,y1,x2,y2,x3,y3){
   return 1;
 }
 
+//Using the 0's and 1's for choosing a side, generate a unique number for which area it is a part of
+//Uses the fact that each subset of {1,-2,4,8,-16,...} is a unique subset in terms of the sum of its terms
+function hashRegion(arr){
+  var finalHash = 0;
+  for (var i=0; i<arr.length; i ++){
+    if (i%2 == 0){
+      finalHash += arr[i] * pow(2 , i);
+    }
+    else{
+      finalHash -= arr[i] * pow(2 , i);
+    }
+  }
+  return finalHash;
+}
+
 //Given the parameters of a line, return the new parameters of a line to make it longer.
 function extendV(x1,y1,x2,y2){
   var dx = x2-x1;
@@ -372,7 +388,7 @@ function touchStarted() {
 }
 function touchEnded(){
   if (inCanvas(mouseX,mouseY)){
-
+    //console.log("end")
     if (dragging == true){
       if (slicing == true){
         slicing = false;
@@ -390,7 +406,7 @@ function touchEnded(){
   }
 }
 function touchMoved() {
-
+  //console.log("moving")
   if (dragging == false && slicing == true && inCanvas(mouseX,mouseY)){
     dragging = true;
   }
@@ -405,7 +421,7 @@ function inCanvas(x,y){
 //If the mouse is being dragged, set dragging to true if it was previously false.
 //If the user is already slicing but tried to drag, don't set dragging as true.
 function mouseDragged(){
-
+  //console.log("mouse drag")
   if (dragging == false && slicing == true){
     dragging = true;
   }
@@ -415,6 +431,7 @@ var mobile = true;
 function mouseReleased(){
 
   if (dragging == true && mobile == false){
+      //console.log("mouse release",tempSlice)
     if (slicing == true){
       slicing = false;
       numOfSlices++;
@@ -458,9 +475,9 @@ function check_and_update_board(){
   //Then overlay the cutting board over the slices on sliceCanvas
   slicectxt.globalCompositeOperation = 'source-atop'
   sliceCanvas.image(board,0,0,cWidth,cHeight);
-
+  
+  
   var pieces = calculateAreas(slices);
-
   var count = 0;
   for (hashKey in pieces){
     count ++;
@@ -472,6 +489,9 @@ function check_and_update_board(){
   var percentages = [];
   for (var i=0; i<results.length;i++){
     percentages.push(parseFloat(results[i][0]));
+    if (parseFloat(results[i][0]) == 100) {
+      //console.log("100")
+    }
   }
   stdval = std(percentages);
   var score = 100 - stdval;
@@ -512,4 +532,5 @@ function check_and_update_board(){
 
 function windowResized() {
   setup();
+
 }
