@@ -30,6 +30,7 @@ var numOfSlices = 0;
 var breadID = 2;
 var orientation = 0; //0 is landscape, 1 is portrait orientation
 
+var loaded = false;
 
 function preload(){
   //Count the number of breads
@@ -42,12 +43,15 @@ function preload(){
   bimg = loadImage("breads/"+breads[breadID][0]);
   $("#bread_name").text(breads[breadID][1]);
   board = loadImage("cuttingboard3.jpg");
-  
+  breadCanvas = createCanvas(cWidth,cHeight);
+  boardCanvas = createGraphics(cWidth,cHeight);
+  sliceCanvas = createGraphics(cWidth,cHeight);
 }
 var scale = 1;
 var fontsize = 16;
 function setup(){
   //reset variables
+  loaded = true;
   console.log("setting up")
 
   $("#loading_message").css('display','none')
@@ -85,9 +89,9 @@ function setup(){
   cursor(CROSS)
   //cWidth = cWidth - 100;
   //Initialize canvases and off screen canvases
-  breadCanvas = createCanvas(cWidth,cHeight); //The piece of bread
-  boardCanvas = createGraphics(cWidth,cHeight); //Drawing the background cutting board
-  sliceCanvas = createGraphics(cWidth,cHeight); //Drawing in the parts of the cutting board that gets shown when the bread is cut
+  resizeCanvas(cWidth,cHeight); //The piece of bread
+  boardCanvas.resizeCanvas(cWidth,cHeight); //Drawing the background cutting board
+  sliceCanvas.resizeCanvas(cWidth,cHeight); //Drawing in the parts of the cutting board that gets shown when the bread is cut
   breadCanvas.parent('cutbread');
   
   //Resolution density d
@@ -511,5 +515,7 @@ function check_and_update_board(){
 }
 
 function windowResized() {
-  setup();
+  if (loaded) {
+    setup();
+  } 
 }
