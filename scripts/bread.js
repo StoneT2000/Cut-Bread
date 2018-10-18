@@ -30,6 +30,7 @@ var numOfSlices = 0;
 var breadID = 2;
 var orientation = 0; //0 is landscape, 1 is portrait orientation
 
+var loaded = false;
 
 function preload(){
   //Count the number of breads
@@ -42,11 +43,17 @@ function preload(){
   bimg = loadImage("breads/"+breads[breadID][0]);
   $("#bread_name").text(breads[breadID][1]);
   board = loadImage("cuttingboard3.jpg");
+  breadCanvas = createCanvas(cWidth,cHeight);
+  boardCanvas = createGraphics(cWidth,cHeight);
+  sliceCanvas = createGraphics(cWidth,cHeight);
   
 }
 var scale = 1;
 var fontsize = 16;
 function setup(){
+  
+  loaded = true;
+  
   //reset variables
   console.log("setting up")
 
@@ -85,9 +92,9 @@ function setup(){
   cursor(CROSS)
   //cWidth = cWidth - 100;
   //Initialize canvases and off screen canvases
-  breadCanvas = createCanvas(cWidth,cHeight); //The piece of bread
-  boardCanvas = createGraphics(cWidth,cHeight); //Drawing the background cutting board
-  sliceCanvas = createGraphics(cWidth,cHeight); //Drawing in the parts of the cutting board that gets shown when the bread is cut
+  resizeCanvas(cWidth,cHeight); //The piece of bread
+  boardCanvas.resizeCanvas(cWidth,cHeight); //Drawing the background cutting board
+  sliceCanvas.resizeCanvas(cWidth,cHeight); //Drawing in the parts of the cutting board that gets shown when the bread is cut
   breadCanvas.parent('cutbread');
   
   //Resolution density d
@@ -120,19 +127,12 @@ function draw(){
   image(boardCanvas,0,0);
   
   //Display Bread and react to possible orientation changes 
-  if (windowWidth > windowHeight || mobile == true){
-    if (orientation == 1){
-      orientation = 0;
-      setup();
-    }
+  if (windowWidth > windowHeight){
     imageMode(CENTER);
     image(bimg,cWidth/2,cHeight/2, bimg.width*scale, bimg.height*scale);
   }
-  else if (windowWidth <= windowHeight && mobile == false) {
-    if (orientation == 0){
-      orientation = 1;
-      setup();
-    }
+  else if (windowWidth <= windowHeight) {
+
     translate(cWidth/2,cHeight/2)
     rotate(PI/2.0)
     imageMode(CENTER);
@@ -292,7 +292,7 @@ function calculateAreas(slices){
           hash_in.push(side(i,j,slices[k],slices[k+1],slices[k+2],slices[k+3]));
         }
         //Hash is used as a key in areas, centersx, centersy objects.
-        var hash = hashRegion(hash_in);
+        var hash = hash_in.join('');
         
         //If hash not initialized already, initialize it into areas object
         if (areas[hash]){
@@ -531,6 +531,8 @@ function check_and_update_board(){
 }
 
 function windowResized() {
-  setup();
+  if (loaded){
+    setup();
+  }
 
 }
