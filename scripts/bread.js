@@ -28,7 +28,6 @@ var sliceCanvas;
 var slicectxt
 var numOfSlices = 0;
 var breadID = 2;
-var orientation = 0; //0 is landscape, 1 is portrait orientation
 
 var loaded = false;
 
@@ -109,12 +108,6 @@ function setup(){
   //Get context of bread canvas and the slices canvas
   context = document.getElementById("defaultCanvas0").getContext('2d');
   slicectxt = sliceCanvas.elt.getContext('2d');
-  if (windowWidth <= windowHeight) {
-    orientation = 1;
-  }
-  else {
-    orientation = 0;
-  }
 }
 
 
