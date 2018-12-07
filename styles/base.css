@@ -74,7 +74,16 @@ button:focus {outline:0;}
   font-weight: 300;
   vertical-align: text-top;
 }
-.footer a:hover{
-  color: RGB(26,29,32);
-  cursor:pointer;
+.octicon-mark-github, .octicon-mail{
+  fill: RGB(52,58,64);
+  -webkit-transition: fill 0.3s;
+  -o-transition: fill 0.3s;
+  transition: fill 0.3s;
+}
+.octicon-mark-github:hover, .octicon-mail:hover{
+  fill: RGB(26,29,32);
+}
+svg {
+  overflow: hidden;
+  vertical-align: middle;
 }
