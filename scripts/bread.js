@@ -41,7 +41,7 @@ function preload(){
   breadID = round(random(0,breadcount-1));
   bimg = loadImage("breads/"+breads[breadID][0]);
   $("#bread_name").text(breads[breadID][1]);
-  board = loadImage("cuttingboard3.jpg");
+  board = loadImage("board1.png");
   breadCanvas = createCanvas(cWidth,cHeight);
   boardCanvas = createGraphics(cWidth,cHeight);
   sliceCanvas = createGraphics(cWidth,cHeight);
