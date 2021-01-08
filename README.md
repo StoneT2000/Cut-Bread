@@ -3,7 +3,11 @@ That's literally it, see how good you are at cutting bread with a friendly passi
 
 Online demo of this web app at https://stonet2000.github.io/Cut-Bread/
 
-<img src="https://github.com/StoneT2000/StoneT2000.github.io/blob/master/images/cutbread3.png"></img>
+<img src="https://github.com/StoneT2000/StoneT2000.github.io/blob/master/public/assets/cutbread.png"></img>
+
+As featured in random news:
+
+- https://www.faz.net/aktuell/wissen/netzraetsel/netzraetsel-die-perfekte-brothaelfte-17027630.html
 
 ## Technical
 Uses HTML, Javascript, CSS, and p5.js library
