@@ -5,6 +5,10 @@ Online demo of this web app at https://stonet2000.github.io/Cut-Bread/
 
 <img src="https://github.com/StoneT2000/StoneT2000.github.io/blob/master/public/assets/cutbread.png"></img>
 
+As featured in a popular tiktok:
+
+- https://www.tiktok.com/@tr1xkz/video/6941390707110268165?lang=en&is_copy_url=0&is_from_webapp=v2&sender_device=pc&sender_web_id=6941851464919614982
+
 As featured in random news:
 
 - https://www.faz.net/aktuell/wissen/netzraetsel/netzraetsel-die-perfekte-brothaelfte-17027630.html
