@@ -447,10 +447,9 @@ function std(arr){
   mean /= arr.length;
   var stdval = 0;
   for (var i =0; i<arr.length;i++){
-    stdval += pow((arr[i]-mean),2)
+    stdval += (arr[i]-mean)**2 / arr.length
   }
-  return sqrt(stdval);
-  
+  return stdval**0.5;
 }
 
 //Update the canvas look by overlaying the cutting board over the slicing lines. then update the message response in accordance to a 'eveness' score calculated using standard deviation of the areas of all the regions.
@@ -519,7 +518,10 @@ function check_and_update_board(){
       var randomNum = round(random(0,paMessages5_1.length-1));
       $("#messageResponse").text(paMessages5_1[randomNum]);
     }
-    
+    else {
+      var randomNum = round(random(0,paMessages4.length-1));
+      $("#messageResponse").text(paMessages4[randomNum]);
+    }
   } 
 }
 
